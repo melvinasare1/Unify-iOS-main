@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>761498013033-3cmenr4q6qsvggknb2l098m6hevhfimm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.761498013033-3cmenr4q6qsvggknb2l098m6hevhfimm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYgSHSnflsx1ofrLge9xRlFaPSbqtQ8Kg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>761498013033</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>MelvinAsare.Unify-iOS</string>
+	<key>PROJECT_ID</key>
+	<string>unify-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>unify-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:761498013033:ios:071f0f72211ca7f538c1f8</string>
+	<key>DATABASE_URL</key>
+	<string>https://unify-ios.firebaseio.com</string>
+</dict>
+</plist>
