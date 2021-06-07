@@ -8,7 +8,11 @@
 import Foundation
 
 enum UnifyErrors: String, Error {
-    case invalidUsername = "This username created an invalid request. Please try again."
+    case noUserRegistered = "There isn't any user registered with this account"
+    case incorrectPassword = "Incorrect password, please try again"
+    case invalidUsername = "This username created an invalid request. Please try a different name."
+    case usernameIsTaken = "This username is no longer available, please select a different name."
+    case invalidPassword = "Your password must have at least one special character, capitel letter and a number"
     case unableToComplete = "Unable to complete your request. Please check your internet connection"
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."

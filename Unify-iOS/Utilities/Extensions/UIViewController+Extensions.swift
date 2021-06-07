@@ -7,22 +7,10 @@
 
 import UIKit
 import SearchTextField
+import CDAlertView
 
 
 extension UIViewController {
-
-//    public func add(_ childViewController: UIViewController,
-//                    addChildView: Bool = true,
-//                    constrainToSuperview: Bool = true) {
-//        addChild(childViewController)
-//
-//        if addChildView {
-//            view.addSubview(childViewController.view)
-//        }
-//        childViewController.didMove(toParent: self)
-//        childViewController.view.translatesAutoresizingMaskIntoConstraints = false
-//        childViewController.view.constrain(to: view)
-//    }
 
     public func add(childViewController: UIViewController, to containerView: UIView) {
         addChild(childViewController)
@@ -129,6 +117,15 @@ extension UIViewController {
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
+        }
+    }
+
+    public func presentCDAlert(title: String, message: String, buttonTitle: String, type: CDAlertViewType) {
+        DispatchQueue.main.async {
+            let alert = CDAlertView(title: title, message: message, type: type)
+            let doneAction = CDAlertViewAction(title: buttonTitle)
+            alert.add(action: doneAction)
+            alert.show()
         }
     }
 }

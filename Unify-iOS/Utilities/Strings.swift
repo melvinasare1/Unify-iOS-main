@@ -17,6 +17,10 @@ public class Strings {
         return NSLocalizedString("UnifyLogo", comment: "")
     }
 
+    public var loading: String {
+        return NSLocalizedString("Loading", comment: "")
+    }
+
     public var resetPassword: String {
         return NSLocalizedString("Reset Password", comment: "")
     }

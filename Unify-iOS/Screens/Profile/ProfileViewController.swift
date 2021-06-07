@@ -6,6 +6,9 @@
 //
 
 import Floaty
+import PanModal
+import JGProgressHUD
+import SDWebImage
 
 class ProfileViewController: UIViewController {
 
@@ -15,64 +18,53 @@ class ProfileViewController: UIViewController {
         let imageView = AvatarView(image: UIImage(named: "solidblue"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        
         return imageView
     }()
 
     private lazy var usernameLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .left, fontSize: 30, titleText: viewModel.user.name )
+        label.configure(textAlignment: .center, fontSize: 30, titleText: viewModel.user.name )
         return label
     }()
 
     private lazy var universityLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .left, fontSize: 18, titleText: "University: \(viewModel.user.university.name)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText: "University: \(viewModel.user.university.name)")
         return label
     }()
 
     private lazy var yearOfStudyLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .left, fontSize: 18, titleText:  "Year: \(viewModel.user.studyYear.year)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText:  "Year: \(viewModel.user.studyYear.year)")
         return label
     }()
 
     private lazy var courseLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .left, fontSize: 18, titleText: "Course: \(viewModel.user.course.name)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText: "Course: \(viewModel.user.course.name)")
         return label
     }()
 
-    private lazy var messageButton: UnifyButton = {
-        let button = UnifyButton()
-        button.configure(buttonText: "Message", textColor: .white, backgroundColors: .systemGreen)
-        button.addTarget(self, action: #selector(messageButtonPressed), for: .touchUpInside)
+    private lazy var menuButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: SFSymbols.ellipsis), for: .normal)
+        button.addTarget(self, action: #selector(presentActionSheet), for: .touchUpInside)
         return button
     }()
 
-    private lazy var addFriendButton: UnifyButton = {
-        let button = UnifyButton()
-        button.configure(buttonText: "Add", textColor: .white, backgroundColors: .systemGreen)
-        button.addTarget(self, action: #selector(addFriendButtonPressed), for: .touchUpInside)
-        return button
-    }()
-
-    @objc func messageButtonPressed() {
-        print("hello")
-    }
-
-    @objc func addFriendButtonPressed() {
-        print("hello")
-    }
-
-    private let loadingIndicatorView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .large)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+//    func configureProfileView() {
+//        if user.profile_picture_url.isEmpty {
+//            profileImageView.backgroundColor = .unifyBlue
+//        } else {
+//            profileImageView.sd_setImage(with: URL(string: user.profile_picture_url, relativeTo: nil))
+//        }
+//    }
 
     struct Consts {
         static let floatingButtonWidth: CGFloat = 52.0
@@ -113,10 +105,35 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+
+    @objc func presentActionSheet() {
+        let alertController = UIAlertController(title: "Please select an option", message: nil, preferredStyle: .actionSheet)
+
+        let addFriendAction = UIAlertAction(title: "Add Friend", style: .default) { _ in
+            print("add friend request")
+        }
+        let messageUserAction = UIAlertAction(title: "Send Message", style: .default) { _ in
+            print("send friend message")
+        }
+        let cancelAaction = UIAlertAction(title: "Cancel", style: .destructive)
+
+        alertController.addAction(addFriendAction)
+        alertController.addAction(messageUserAction)
+        alertController.addAction(cancelAaction)
+
+        self.present(alertController, animated: true)
+    }
+
+    @objc func dismissKeyboard() {
+        self.dismiss(animated: true)
+    }
 }
 
 private extension ProfileViewController {
     func setup() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture)
+
         removeBarButtonItems()
 
         view.backgroundColor = .white
@@ -126,43 +143,38 @@ private extension ProfileViewController {
         view.addSubview(courseLabel)
         view.addSubview(universityLabel)
         view.addSubview(yearOfStudyLabel)
-        view.addSubview(messageButton)
         view.addSubview(floatingActionButton)
-        view.addSubview(loadingIndicatorView)
+        view.addSubview(menuButton)
 
         profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        usernameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
-        usernameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: -10).isActive = true
+        usernameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        usernameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20).isActive = true
 
         universityLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 10).isActive = true
         universityLabel.centerXAnchor.constraint(equalTo: usernameLabel.centerXAnchor).isActive = true
-        universityLabel.leadingAnchor.constraint(equalTo: usernameLabel.leadingAnchor).isActive = true
+        universityLabel.leadingAnchor.constraint(equalTo: courseLabel.leadingAnchor).isActive = true
         universityLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor).isActive = true
 
-        courseLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true
-        courseLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor).isActive = true
+        courseLabel.topAnchor.constraint(equalTo: universityLabel.bottomAnchor, constant: 10).isActive = true
+        courseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         courseLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor).isActive = true
 
         yearOfStudyLabel.topAnchor.constraint(equalTo: courseLabel.bottomAnchor, constant: 10).isActive = true
         yearOfStudyLabel.leadingAnchor.constraint(equalTo: courseLabel.leadingAnchor).isActive = true
         yearOfStudyLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor).isActive = true
 
-        messageButton.topAnchor.constraint(equalTo: yearOfStudyLabel.bottomAnchor, constant: 20).isActive = true
-        messageButton.leadingAnchor.constraint(equalTo: usernameLabel.leadingAnchor, constant: 10).isActive = true
-        messageButton.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: -10).isActive = true
-        messageButton.isHidden = true
-
         floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
         floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
         floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
+        floatingActionButton.backgroundColor = .red
 
-        loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        menuButton.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
+        menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
 }
 
@@ -191,5 +203,28 @@ extension ProfileViewController: FloatyDelegate {
         let viewModel = UserLoginViewModel()
         let viewController = UserLoginOptionsViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+
+extension ProfileViewController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(350)
+    }
+
+    var longFormHeight: PanModalHeight {
+        return shortFormHeight
+    }
+
+    var anchorModalToLongForm: Bool {
+        return false
+    }
+
+    var showDragIndicator: Bool {
+        return false
     }
 }
