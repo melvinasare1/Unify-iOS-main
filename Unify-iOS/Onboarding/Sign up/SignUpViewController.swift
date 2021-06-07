@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import CDAlertView
 
 class SignUpViewController: UIViewController {
 
+    private lazy var alertView: CDAlertView = {
+        let view = CDAlertView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
     private let emailTextField: UnifyTextField = {
         let textField = UnifyTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -80,10 +87,18 @@ class SignUpViewController: UIViewController {
               let password = passwordTextField.text
         else { return }
 
-        if email.isEmpty || password.isEmpty || !isEmailValid(email) || !isPasswordValid(password: password) {
-            self.presentCustomAlert(title: "title error", message: "message error", buttonTitle: "ok")
+        let success = true
 
-        } else {
+        switch success {
+        case email.isEmpty:
+            self.presentCDAlert(title: "Error", message: "Email is empty", buttonTitle: "ok", type: .error)
+        case password.isEmpty:
+            self.presentCDAlert(title: "Error", message: "password is empty", buttonTitle: "ok", type: .error)
+        case !isEmailValid(email):
+            self.presentCDAlert(title: "Error", message: "Email is not valid, must contain @ and a domain i.e gmail.com", buttonTitle: "ok", type: .error)
+        case !isPasswordValid(password: password):
+            self.presentCDAlert(title: "Error", message: "Password needs to be at least 6 characters with a special character, one number and a capital letter", buttonTitle: "ok", type: .error)
+        default:
             viewModel.createUserWithEmail(email: email, password: password) { [weak self] userId in
                 guard let self = self else { return }
                 let createProfileVM = CreateProfileViewModel(userId: userId)

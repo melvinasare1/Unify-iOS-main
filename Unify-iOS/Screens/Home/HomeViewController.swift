@@ -133,8 +133,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])), animated: true)
+//        navigationController?.pushViewController(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])), animated: true)
+
+        self.presentPanModal(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])))
     }
+
+
 
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
