@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text  else { return }
 
         if email.isEmpty && password.isEmpty {
-            self.presentCustomAlert(title: "title error", message: "message error", buttonTitle: "ok")
+            self.presentCDAlert(title: "Error", message: "Please check you've entered the correct email & password", buttonTitle: "ok", type: .error)
         } else {
             viewModel.signinWithEmail(email: email, password: password) { [weak self] success in
                 guard let self = self else { return }
