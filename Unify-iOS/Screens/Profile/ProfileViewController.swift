@@ -32,21 +32,21 @@ class ProfileViewController: UIViewController {
     private lazy var universityLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 18, titleText: "University: \(viewModel.user.university.name)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText: viewModel.user.university.name)
         return label
     }()
 
     private lazy var yearOfStudyLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 18, titleText:  "Year: \(viewModel.user.studyYear.year)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText: viewModel.user.studyYear.year)
         return label
     }()
 
     private lazy var courseLabel: UnifyTitleLabel = {
         let label = UnifyTitleLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 18, titleText: "Course: \(viewModel.user.course.name)")
+        label.configure(textAlignment: .center, fontSize: 18, titleText: viewModel.user.course.name)
         return label
     }()
 
@@ -58,13 +58,13 @@ class ProfileViewController: UIViewController {
         return button
     }()
 
-//    func configureProfileView() {
-//        if user.profile_picture_url.isEmpty {
-//            profileImageView.backgroundColor = .unifyBlue
-//        } else {
-//            profileImageView.sd_setImage(with: URL(string: user.profile_picture_url, relativeTo: nil))
-//        }
-//    }
+    func configureProfileView() {
+        if viewModel.user.profile_picture_url.isEmpty {
+            profileImageView.backgroundColor = .unifyBlue
+        } else {
+            profileImageView.sd_setImage(with: URL(string: viewModel.user.profile_picture_url, relativeTo: nil))
+        }
+    }
 
     struct Consts {
         static let floatingButtonWidth: CGFloat = 52.0
@@ -131,10 +131,8 @@ class ProfileViewController: UIViewController {
 
 private extension ProfileViewController {
     func setup() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-            view.addGestureRecognizer(tapGesture)
-
         removeBarButtonItems()
+        configureProfileView()
 
         view.backgroundColor = .white
 
@@ -173,8 +171,8 @@ private extension ProfileViewController {
         floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
         floatingActionButton.backgroundColor = .red
 
-        menuButton.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
-        menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        menuButton.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 15).isActive = true
+        menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
     }
 }
 
@@ -193,9 +191,7 @@ extension ProfileViewController: FloatyDelegate {
     }
 
     @objc func returnToProfile() {
-        let viewModel = ProfileViewModel(user: User(name: "Melvin Asare", email: "melvinasare@gmail.com", profile_picture_url: "crocker", toId: "dvmmkfmvfkvf", is_Online: true, university: University(name: "Birmingham", location: "Birmingham", picture: "crocker"), course: Course(name: "Business"), studyYear: StudyYear(year: "year 2")))
-        let viewController = ProfileViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func tempSignOut() {
@@ -213,7 +209,7 @@ extension ProfileViewController: PanModalPresentable {
     }
 
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(350)
+        return .contentHeight(300)
     }
 
     var longFormHeight: PanModalHeight {
