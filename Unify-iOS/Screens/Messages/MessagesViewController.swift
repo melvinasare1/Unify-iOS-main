@@ -97,15 +97,13 @@ extension MessagesViewController: FloatyDelegate {
     }
 
     @objc func returnToMessages() {
-        let viewModel = MessagesViewModel()
-        let viewController = MessagesViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func returnToProfile() {
         let viewModel = ProfileViewModel(user: User(name: "Melvin Asare", email: "melvinasare@gmail.com", profile_picture_url: "crocker", toId: "dvmmkfmvfkvf", is_Online: true, university: University(name: "Birmingham", location: "Birmingham", picture: "crocker"), course: Course(name: "Business"), studyYear: StudyYear(year: "year 2")))
         let viewController = ProfileViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.presentPanModal(viewController)
     }
 
     @objc func tempSignOut() {

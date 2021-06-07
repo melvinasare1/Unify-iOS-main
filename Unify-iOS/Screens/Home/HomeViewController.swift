@@ -133,12 +133,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        navigationController?.pushViewController(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])), animated: true)
-
         self.presentPanModal(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])))
     }
-
-
 
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
@@ -172,9 +168,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: FloatyDelegate {
 
     @objc func returnToHome() {
-        let viewModel = HomeViewModel()
-        let viewController = HomeViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func returnToMessages() {
@@ -186,7 +180,7 @@ extension HomeViewController: FloatyDelegate {
     @objc func returnToProfile() {
         let viewModel = ProfileViewModel(user: User(name: "Melvin Asare", email: "melvinasare@gmail.com", profile_picture_url: "crocker", toId: "dvmmkfmvfkvf", is_Online: true, university: University(name: "Birmingham", location: "Birmingham", picture: "crocker"), course: Course(name: "Business"), studyYear: StudyYear(year: "year 2")))
         let viewController = ProfileViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.presentPanModal(viewController)
     }
 
     @objc func tempSignOut() {
