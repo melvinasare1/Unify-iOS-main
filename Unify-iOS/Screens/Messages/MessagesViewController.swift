@@ -6,9 +6,23 @@
 //
 
 import Floaty
+import JGProgressHUD
 
 class MessagesViewController: UIViewController {
     private var viewModel: MessagesViewModel!
+
+    private let noConversationLabel: UILabel = {
+         let name = UILabel()
+         name.translatesAutoresizingMaskIntoConstraints = false
+         return name
+     }()
+
+     private lazy var loadingIndicator: JGProgressHUD = {
+         let hud = JGProgressHUD()
+         hud.textLabel.text = Unify.strings.loading
+         hud.backgroundColor = .darkGray
+         return hud
+     }()
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -54,12 +68,16 @@ class MessagesViewController: UIViewController {
 
         view.backgroundColor = .white
 
+        view.addSubview(loadingIndicator)
         view.addSubview(floatingActionButton)
 
         tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
         tableView.allowsSelection = true
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
+
+        loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true

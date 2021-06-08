@@ -7,17 +7,21 @@
 
 import UIKit
 import FirebaseDatabase
+import MessageKit
 
 class ChatLogViewController: UIViewController {
 
-    private lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    private var messages = [Messages]()
+
+    private let sender = Sender(senderId: "1", displayName: "Jason", photoUrl: "")
+
+    private lazy var messagesCollectionView: MessagesCollectionView = {
+        let collectionView = MessagesCollectionView()
+        collectionView.messagesDataSource = self
+        collectionView.messagesDisplayDelegate = self
+        collectionView.messagesLayoutDelegate = self
+        collectionView.backgroundColor = .green
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ChatLogCollectionViewCell.self, forCellWithReuseIdentifier: Unify.strings.cell)
-        collectionView.backgroundColor = .white
         return collectionView
     }()
 
@@ -25,36 +29,6 @@ class ChatLogViewController: UIViewController {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
-    }()
-
-    private let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private let seperatorLineView: UIView = {
-        let view = UIView()
-        view.layer.borderColor = UIColor.gray.cgColor
-        view.layer.borderWidth = 6
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private lazy var inputTextField: UITextField = {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = Unify.strings.enter_message
-        tf.delegate = self
-        return tf
-    }()
-
-    private lazy var sendMessageButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .clear
-        button.setTitle(Unify.strings.send, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
     }()
 
     private let viewModel: ChatLogViewModel!
@@ -78,54 +52,25 @@ private extension ChatLogViewController {
 
     func setup() {
         view.backgroundColor = .white
-    
-        view.addSubview(containerView)
-        containerView.addSubview(inputTextField)
-        containerView.addSubview(sendMessageButton)
-        containerView.addSubview(seperatorLineView)
 
         userNameLabel.text = viewModel.user.name
 
         navigationItem.title = userNameLabel.text
         navigationController?.navigationBar.prefersLargeTitles = false
-
-        containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-
-        seperatorLineView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        seperatorLineView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        seperatorLineView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        seperatorLineView.heightAnchor.constraint(equalToConstant: 0.7).isActive = true
-
-        inputTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
-        inputTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -70).isActive = true
-        inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-        inputTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive = true
-
-        sendMessageButton.leadingAnchor.constraint(equalTo: inputTextField.trailingAnchor, constant: 0).isActive = true
-        sendMessageButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0).isActive = true
-        sendMessageButton.topAnchor.constraint(equalTo: containerView.topAnchor,constant: 0).isActive = true
-        sendMessageButton.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1).isActive = true
     }
 }
 
-extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChatLogViewController: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    func currentSender() -> SenderType {
+        return sender
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Unify.strings.cell, for: indexPath) as! ChatLogCollectionViewCell
-        return cell
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
     }
-}
 
-extension ChatLogViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        viewModel.sendMessage(sentText: inputTextField.text!)
-        return true
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        messages.count
     }
 }

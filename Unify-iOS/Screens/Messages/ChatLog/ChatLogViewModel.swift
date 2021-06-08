@@ -14,9 +14,4 @@ class ChatLogViewModel {
     init(user: User) {
         self.user = user
     }
-
-    func sendMessage(sentText: String) {
-        guard let toId = user.toId else { return }
-        CommunicationManager.shared.sendMessages(usersId: toId, sentText: sentText)
-    }
 }
