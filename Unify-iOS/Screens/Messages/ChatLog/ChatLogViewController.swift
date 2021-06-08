@@ -9,18 +9,18 @@ import UIKit
 import FirebaseDatabase
 import MessageKit
 
-class ChatLogViewController: UIViewController {
+class ChatLogViewController: MessagesViewController {
 
     private var messages = [Messages]()
 
     private let sender = Sender(senderId: "1", displayName: "Jason", photoUrl: "")
 
     private lazy var messagesCollectionView: MessagesCollectionView = {
-        let collectionView = MessagesCollectionView()
+        let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.messagesDataSource = self
         collectionView.messagesDisplayDelegate = self
         collectionView.messagesLayoutDelegate = self
-        collectionView.backgroundColor = .green
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -31,32 +31,41 @@ class ChatLogViewController: UIViewController {
         return name
     }()
 
-    private let viewModel: ChatLogViewModel!
+//    private let viewModel: ChatLogViewModel!
+//
+//    init(viewModel: ChatLogViewModel) {
+//        self.viewModel = viewModel
+//        super.init(viewModel: MessagesViewModel())
+//    }
 
-    init(viewModel: ChatLogViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        messages.append(Messages(sender: sender, messageId: "1", sentDate: Date(), kind: .text("Hello")))
+        messages.append(Messages(sender: sender, messageId: "1", sentDate: Date(), kind: .text("Hello hello Hello hello")))
     }
 }
 
 private extension ChatLogViewController {
 
     func setup() {
+        view.addSubview(messagesCollectionView)
+
         view.backgroundColor = .white
 
-        userNameLabel.text = viewModel.user.name
+        userNameLabel.text = "viewModel.user.name"
 
         navigationItem.title = userNameLabel.text
         navigationController?.navigationBar.prefersLargeTitles = false
+
+        messagesCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        messagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        messagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        messagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 
@@ -71,6 +80,6 @@ extension ChatLogViewController: MessagesDataSource, MessagesDisplayDelegate, Me
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        messages.count
+        return messages.count
     }
 }

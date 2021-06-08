@@ -12,23 +12,25 @@ class MessagesViewController: UIViewController {
     private var viewModel: MessagesViewModel!
 
     private let noConversationLabel: UILabel = {
-         let name = UILabel()
-         name.translatesAutoresizingMaskIntoConstraints = false
-         return name
-     }()
+        let name = UILabel()
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.text = "No Conversations"
+        return name
+    }()
 
-     private lazy var loadingIndicator: JGProgressHUD = {
-         let hud = JGProgressHUD()
-         hud.textLabel.text = Unify.strings.loading
-         hud.backgroundColor = .darkGray
-         return hud
-     }()
+    private lazy var loadingIndicator: JGProgressHUD = {
+        let hud = JGProgressHUD()
+        hud.textLabel.text = Unify.strings.loading
+        hud.backgroundColor = .darkGray
+        return hud
+    }()
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.delegate = self
         view.dataSource = self
+        view.isHidden = true
         return view
     }()
 
@@ -67,6 +69,7 @@ class MessagesViewController: UIViewController {
         removeBarButtonItems()
 
         view.backgroundColor = .white
+        title = Unify.strings.messages
 
         view.addSubview(loadingIndicator)
         view.addSubview(floatingActionButton)
@@ -95,12 +98,12 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! MessagesTableViewCell
         return cell
     }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let viewController = ChatLogViewController(viewModel: ChatLogViewModel())
-//        viewController
-//
-//    }
+    //
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        let viewController = ChatLogViewController(viewModel: ChatLogViewModel())
+    //        viewController
+    //
+    //    }
 }
 
 extension MessagesViewController: FloatyDelegate {

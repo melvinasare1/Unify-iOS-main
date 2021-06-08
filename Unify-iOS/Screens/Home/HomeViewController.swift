@@ -143,7 +143,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
             let users = self.viewModel.users.wrappedValue[indexPath.row]
-            let viewController = ChatLogViewController(viewModel: ChatLogViewModel(user: users))
+            let viewController = ChatLogViewController(viewModel: MessagesViewModel())
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
@@ -172,9 +172,9 @@ extension HomeViewController: FloatyDelegate {
     }
 
     @objc func returnToMessages() {
-        let viewModel = MessagesViewModel()
-        let viewController = MessagesViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+//        let viewModel = MessagesViewModel()
+//        let viewController = MessagesViewController(viewModel: viewModel)
+//        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc func returnToProfile() {
