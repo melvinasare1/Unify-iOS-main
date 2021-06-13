@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Message {
+struct Messages {
     var fromId: String
     var text: String
     var timestamp: NSNumber

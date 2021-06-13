@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MessagesViewModel {
+class ConversationsViewModel {
 
     init() {
         retrieveMessages()

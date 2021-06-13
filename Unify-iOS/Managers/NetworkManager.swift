@@ -120,6 +120,7 @@ extension NetworkManager {
             self.signInWithEmail(email: email, password: password) { _ in }
             completion(result)
         }
+        
     }
 
     func addUserToDatabase(userId: String, name: String, university_name: String, course: String, yearOfStudy: String,_ completion: @escaping (Bool) -> Void) {

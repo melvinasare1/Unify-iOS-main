@@ -8,8 +8,8 @@
 import Floaty
 import JGProgressHUD
 
-class MessagesViewController: UIViewController {
-    private var viewModel: MessagesViewModel!
+class ConversationViewController: UIViewController {
+    private var viewModel: ConversationsViewModel!
 
     private let noConversationLabel: UILabel = {
         let name = UILabel()
@@ -55,7 +55,7 @@ class MessagesViewController: UIViewController {
         return view
     }()
 
-    init(viewModel: MessagesViewModel) {
+    init(viewModel: ConversationsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -89,13 +89,13 @@ class MessagesViewController: UIViewController {
     }
 }
 
-extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
+extension ConversationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! MessagesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! ConversationsTableViewCell
         return cell
     }
     //
@@ -106,7 +106,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     //    }
 }
 
-extension MessagesViewController: FloatyDelegate {
+extension ConversationViewController: FloatyDelegate {
     struct Consts {
         static let floatingButtonWidth: CGFloat = 52.0
         static let floatingButtonPadding: CGFloat = 28.0

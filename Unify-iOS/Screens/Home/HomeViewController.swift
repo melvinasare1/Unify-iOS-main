@@ -142,13 +142,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
-            let users = self.viewModel.users.wrappedValue[indexPath.row]
-            let viewController = ChatLogViewController(viewModel: MessagesViewModel())
+//            let users = self.viewModel.users.wrappedValue[indexPath.row]
+            let viewController = ChatLogViewController()
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
         let hide = UIContextualAction(style: .destructive, title: Unify.strings.hide) { (action, view, nil) in
-            let users = self.viewModel.users.wrappedValue[indexPath.row]
+        //    let users = self.viewModel.users.wrappedValue[indexPath.row]
             print("hide user")
         }
         message.backgroundColor = .systemGreen

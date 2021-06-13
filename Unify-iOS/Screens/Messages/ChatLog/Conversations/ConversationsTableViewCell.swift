@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessagesTableViewCell: UITableViewCell {
+class ConversationsTableViewCell: UITableViewCell {
 
     var userNameLabel: UILabel = {
         let name = UILabel()
@@ -43,7 +43,7 @@ class MessagesTableViewCell: UITableViewCell {
     }
 }
 
-private extension MessagesTableViewCell {
+private extension ConversationsTableViewCell {
     func setup() {
 
         addSubview(userNameLabel)
