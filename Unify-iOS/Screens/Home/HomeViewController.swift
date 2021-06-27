@@ -8,6 +8,7 @@
 import PanModal
 import Observable
 import Floaty
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
@@ -66,6 +67,11 @@ class HomeViewController: UIViewController {
         disposable = viewModel.users.observe { [weak self] _, _ in
             self?.tableView.reloadData()
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -143,7 +149,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
 //            let users = self.viewModel.users.wrappedValue[indexPath.row]
-            let viewController = ChatLogViewController()
+            let viewController = ChatLogViewController(viewModel: ChatLogViewModel(user: self.viewModel.user(for: indexPath)!))
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 

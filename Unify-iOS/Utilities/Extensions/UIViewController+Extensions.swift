@@ -26,6 +26,12 @@ extension UIViewController {
         navigationItem.rightBarButtonItem = leftBarButton
     }
 
+    public func safeEmail(emailAddress: String) -> String {
+        var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
+
     public func isPasswordValid(password: String) -> Bool {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
         return passwordTest.evaluate(with: password)

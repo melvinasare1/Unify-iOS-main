@@ -55,6 +55,10 @@ class ConversationViewController: UIViewController {
         return view
     }()
 
+    @objc func presentComposeMessageController() {
+        navigationController?.present(ComposeNewMessageController(), animated: true, completion: nil)
+    }
+    
     init(viewModel: ConversationsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -67,6 +71,9 @@ class ConversationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         removeBarButtonItems()
+
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentComposeMessageController))
+        navigationController?.navigationItem.rightBarButtonItem = rightBarButtonItem
 
         view.backgroundColor = .white
         title = Unify.strings.messages

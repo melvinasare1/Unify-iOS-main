@@ -78,6 +78,10 @@ extension NetworkManager {
         UserDefaults.standard.set(name, forKey: "Name")
     }
 
+    func saveUserEmail(email: String) {
+        UserDefaults.standard.set(email, forKey: "Email")
+    }
+
     func saveUserUniversity(university: String) {
         UserDefaults.standard.set(university, forKey: "University")
     }
@@ -119,8 +123,8 @@ extension NetworkManager {
             self.addUserEmailToDatabase(email: email, userId: result.user.uid)
             self.signInWithEmail(email: email, password: password) { _ in }
             completion(result)
+            self.saveUserEmail(email: email)
         }
-        
     }
 
     func addUserToDatabase(userId: String, name: String, university_name: String, course: String, yearOfStudy: String,_ completion: @escaping (Bool) -> Void) {
