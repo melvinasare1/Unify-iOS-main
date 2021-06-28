@@ -9,6 +9,7 @@ import Floaty
 import JGProgressHUD
 
 class ConversationViewController: UIViewController {
+
     private var viewModel: ConversationsViewModel!
 
     private let noConversationLabel: UILabel = {
@@ -30,7 +31,6 @@ class ConversationViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.delegate = self
         view.dataSource = self
-        view.isHidden = false
         view.register(ConversationsTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
         view.allowsSelection = true
         view.rowHeight = UITableView.automaticDimension
@@ -90,19 +90,15 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    //
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        let viewController = ChatLogViewController(viewModel: ChatLogViewModel())
-    //        viewController
-    //
-    //    }
 }
 
 extension ConversationViewController: FloatyDelegate {
+
     struct Consts {
         static let floatingButtonWidth: CGFloat = 52.0
         static let floatingButtonPadding: CGFloat = 28.0
     }
+
     @objc func returnToHome() {
         let viewModel = HomeViewModel()
         let viewController = HomeViewController(viewModel: viewModel)
@@ -138,8 +134,13 @@ private extension ConversationViewController {
         title = Unify.strings.messages
 
         view.addSubview(loadingIndicator)
-        view.addSubview(floatingActionButton)
         view.addSubview(tableView)
+        view.addSubview(floatingActionButton)
+
+        floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
+        floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
+        floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
 
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -149,19 +150,12 @@ private extension ConversationViewController {
         loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
-        floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
-        floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
-
-
         viewModel.startListeningForConversations { result in
             print(result)
 
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
         }
     }
 }
