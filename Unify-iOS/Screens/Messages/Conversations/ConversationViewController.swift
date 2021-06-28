@@ -70,29 +70,7 @@ class ConversationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        removeBarButtonItems()
-
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentComposeMessageController))
-        navigationController?.navigationItem.rightBarButtonItem = rightBarButtonItem
-
-        view.backgroundColor = .white
-        title = Unify.strings.messages
-
-        view.addSubview(loadingIndicator)
-        view.addSubview(floatingActionButton)
-
-        tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
-        tableView.allowsSelection = true
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
-
-        loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
-        floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
-        floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
+        setup()
     }
 }
 
@@ -139,5 +117,43 @@ extension ConversationViewController: FloatyDelegate {
         let viewModel = UserLoginViewModel()
         let viewController = UserLoginOptionsViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+private extension ConversationViewController {
+    func setup() {
+        removeBarButtonItems()
+
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(presentComposeMessageController))
+        navigationController?.navigationItem.rightBarButtonItem = rightBarButtonItem
+
+        view.backgroundColor = .white
+        title = Unify.strings.messages
+
+        view.addSubview(loadingIndicator)
+        view.addSubview(floatingActionButton)
+
+        tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
+        tableView.allowsSelection = true
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
+
+        loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        floatingActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
+        floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
+        floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
+
+
+        viewModel.startListeningForConversations { result in
+            print(result)
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+
+        }
     }
 }

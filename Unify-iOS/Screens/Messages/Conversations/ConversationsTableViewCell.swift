@@ -9,6 +9,13 @@ import UIKit
 
 class ConversationsTableViewCell: UITableViewCell {
 
+    private let profileImageView: AvatarView = {
+        let imageView = AvatarView(image: UIImage(named: "solidblue"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     var userNameLabel: UILabel = {
         let name = UILabel()
         name.textColor = .black
@@ -49,12 +56,20 @@ private extension ConversationsTableViewCell {
         addSubview(userNameLabel)
         addSubview(userMessageLabel)
         addSubview(timeLabel)
+        addSubview(profileImageView)
 
-        userNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
-        userNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
 
-        userMessageLabel.centerYAnchor.constraint(equalTo: userNameLabel.centerYAnchor, constant: 30).isActive = true
-        userMessageLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        userNameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 20).isActive = true
+        userNameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: -25).isActive = true
+        userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+
+        userMessageLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 8).isActive = true
+        userMessageLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 20).isActive = true
+        userMessageLabel.trailingAnchor.constraint(equalTo: userNameLabel.trailingAnchor).isActive = true
 
         timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
         timeLabel.centerYAnchor.constraint(equalTo: userNameLabel.centerYAnchor, constant: 0).isActive = true

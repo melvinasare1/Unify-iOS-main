@@ -102,7 +102,6 @@ private extension UniversitySelectViewController {
         configureCollectionViewDataSource()
         configureSearchController()
         removeBarButtonItems()
-        print(viewModel.userId)
        checkIfUserIsLoggedIn()
 
         viewModel.retrieveUniversityData { [weak self] university in

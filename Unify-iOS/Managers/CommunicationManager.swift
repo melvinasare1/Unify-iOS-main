@@ -15,13 +15,13 @@ class CommunicationManager {
     var messagesDictionary = [String: Message]()
     let userId = AccountManager.account.currentUser?.uid
 
-    private func safeEmail(emailAddress: String) -> String {
+    public func safeEmail(emailAddress: String) -> String {
         var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
 
-    public func createNewConversatioon(with otherUserEmail: String, firstMessage: Message, _ completion: @escaping (Bool) -> Void) {
+    public func createNewConversatioon(with otherUserEmail: String, name: String, firstMessage: Message, _ completion: @escaping (Bool) -> Void) {
         guard let currentEmail = UserDefaults.standard.value(forKey: "Email") as? String else { return }
 
         let reference = Database.database().reference(withPath: "Users").child(userId!)
@@ -65,6 +65,7 @@ class CommunicationManager {
             let newConversationData: [String: Any] = [
                 "id": conversationId,
                 "other_user_email": otherUserEmail,
+                "name": name,
                 "latestMessage": [
                     "date": dateString,
                     "message": message,
@@ -80,7 +81,7 @@ class CommunicationManager {
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(conversationId: conversationId, firstMessage: firstMessage, completion)
+                    self?.finishCreatingConversation(conversationId: conversationId, name: name, firstMessage: firstMessage, completion)
 
                 }
             } else {
@@ -93,7 +94,7 @@ class CommunicationManager {
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(conversationId: conversationId, firstMessage: firstMessage, completion)
+                    self?.finishCreatingConversation(conversationId: conversationId, name: name, firstMessage: firstMessage, completion)
                 }
             }
         } withCancel: { (error) in
@@ -101,7 +102,7 @@ class CommunicationManager {
         }
     }
 
-    private func finishCreatingConversation(conversationId: String, firstMessage: Message, _ completion: @escaping (Bool)-> Void) {
+    private func finishCreatingConversation(conversationId: String, name: String, firstMessage: Message, _ completion: @escaping (Bool)-> Void) {
 
         let messageDate = firstMessage.sentDate
         let dateString = ChatLogViewController.dateFormatter.string(from: messageDate)
@@ -145,7 +146,8 @@ class CommunicationManager {
             "content": message,
             "date": dateString,
             "sender_email": safeCurrentEmail,
-            "is_read": false
+            "is_read": false,
+            "name": name
         ]
 
         let value: [String: Any] = [
@@ -163,7 +165,34 @@ class CommunicationManager {
         }
     }
 
-    public func getAllConversations(for email: String, _ completion: @escaping (Result<String, Error>) -> Void) {
+    public func getAllConversations(for email: String, _ completion: @escaping (Result<[Conversation], Error>) -> Void) {
+        guard let uid = userId else { return }
+
+        Database.database().reference(withPath: Unify.strings.users).child("\(uid)/conversations").observe(.value) { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(UnifyErrors.invalidResponse))
+                return
+            }
+            let conversations: [Conversation] = value.compactMap { dictionary in
+                guard
+                    let conversationId = dictionary["id"] as? String,
+                    let name = dictionary["name"] as? String,
+                    let otherUsersEmail = dictionary["other_user_email"] as? String,
+                    let latestMessage = dictionary["latestMessage"] as? [String: Any],
+                    let date = latestMessage["date"] as? String,
+                    let message = latestMessage["message"] as? String,
+                    let isRead = latestMessage["is_read"] as? Bool else {
+                    return nil
+                }
+
+                let latestMessageObject = LatestMessage(date: date,
+                                                        text: message,
+                                                        is_read: isRead)
+                return Conversation(id: conversationId, name: name,
+                                    otherUserEmail: otherUsersEmail,
+                                    latestMessage: latestMessageObject)
+            }
+        }
 
     }
 
@@ -173,14 +202,5 @@ class CommunicationManager {
 
     public func sendMessagesToConversation(conversation: String, message: Message, _ completion: @escaping (Bool) -> Void) {
 
-    }
-
-    func sendMessages(usersId: String, sentText: String) {
-        let reference = Database.database().reference(withPath: Unify.strings.messages)
-        let childRefence = reference.childByAutoId()
-        let fromId = AccountManager.account.currentUser?.uid
-        let timestamp = NSNumber(value: NSDate().timeIntervalSince1970)
-        let values = ["toId": usersId,"fromId": fromId!, "text": sentText, "timestamp": timestamp] as [String : Any]
-        childRefence.updateChildValues(values)
     }
 }

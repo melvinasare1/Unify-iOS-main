@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController {
         let imageView = AvatarView(image: UIImage(named: "solidblue"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        
         return imageView
     }()
 

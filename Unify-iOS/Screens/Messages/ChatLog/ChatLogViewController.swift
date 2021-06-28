@@ -32,7 +32,6 @@ class ChatLogViewController: MessagesViewController {
                photoUrl: "")
     }
 
-    public let otherUserEmail: String = ""
     public var isNewConversation = true
 
     private let userNameLabel: UILabel = {
@@ -53,7 +52,6 @@ class ChatLogViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -78,8 +76,8 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
                                   messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-
-            CommunicationManager.shared.createNewConversatioon(with: otherUserEmail, firstMessage: message) { [weak self] success in
+            #warning("fix this add users name")
+            CommunicationManager.shared.createNewConversatioon(with: viewModel.user.email, name: self.title ?? "user", firstMessage: message) { success in
             }
         } else {
             print("error")
@@ -92,7 +90,7 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
         let safeUserEmail = safeEmail(emailAddress: currentUserEmail)
         let dateString = ChatLogViewController.dateFormatter.string(from: Date())
 
-        let newIdentifier = "\(otherUserEmail)_\(safeUserEmail)_\(dateString)"
+        let newIdentifier = "\(viewModel.user.email)_\(safeUserEmail)_\(dateString)"
         return newIdentifier
     }
 }
@@ -102,11 +100,8 @@ private extension ChatLogViewController {
     func setup() {
         view.backgroundColor = .white
 
-        userNameLabel.text = "viewModel.user.name"
-
-        navigationItem.title = userNameLabel.text
+        title = viewModel.user.name
         navigationController?.navigationBar.prefersLargeTitles = false
-
     }
 }
 

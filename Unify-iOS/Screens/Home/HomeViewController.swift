@@ -84,12 +84,12 @@ class HomeViewController: UIViewController {
 private extension HomeViewController {
     func setup() {
         removeBarButtonItems()
-//
-//        viewModel.checkIfUsersLoggedIn { isLoggedIn in
-//            if !isLoggedIn {
-//                self.navigationController?.pushViewController(UserLoginOptionsViewController(viewModel: UserLoginViewModel()), animated: true)
-//            }
-//        }
+
+        viewModel.checkIfUsersLoggedIn { isLoggedIn in
+            if !isLoggedIn {
+                self.navigationController?.pushViewController(UserLoginOptionsViewController(viewModel: UserLoginViewModel()), animated: true)
+            }
+        }
 
         view.backgroundColor = .white
         view.addSubview(tableView)
