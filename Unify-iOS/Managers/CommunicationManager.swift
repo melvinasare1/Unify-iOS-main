@@ -168,7 +168,11 @@ class CommunicationManager {
     public func getAllConversations(for email: String, _ completion: @escaping (Result<[Conversation], Error>) -> Void) {
         guard let uid = userId else { return }
 
-        Database.database().reference(withPath: Unify.strings.users).child("\(uid)/conversations").observe(.value) { snapshot in
+        let database = Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations")
+            print(database)
+
+        Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations").observe(.value) { snapshot in
+            print(snapshot)
             guard let value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(UnifyErrors.invalidResponse))
                 return

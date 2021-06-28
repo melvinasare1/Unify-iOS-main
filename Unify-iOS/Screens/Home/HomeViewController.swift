@@ -178,9 +178,9 @@ extension HomeViewController: FloatyDelegate {
     }
 
     @objc func returnToMessages() {
-//        let viewModel = MessagesViewModel()
-//        let viewController = MessagesViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(viewController, animated: true)
+        let viewModel = ConversationsViewModel()
+        let viewController = ConversationViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc func returnToProfile() {

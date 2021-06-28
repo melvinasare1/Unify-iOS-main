@@ -26,11 +26,14 @@ class ConversationViewController: UIViewController {
     }()
 
     private lazy var tableView: UITableView = {
-        let view = UITableView()
+        let view = UITableView(frame: .infinite)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.delegate = self
         view.dataSource = self
-        view.isHidden = true
+        view.isHidden = false
+        view.register(ConversationsTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
+        view.allowsSelection = true
+        view.rowHeight = UITableView.automaticDimension
         return view
     }()
 
@@ -83,6 +86,10 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! ConversationsTableViewCell
         return cell
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     //
     //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //        let viewController = ChatLogViewController(viewModel: ChatLogViewModel())
@@ -132,11 +139,12 @@ private extension ConversationViewController {
 
         view.addSubview(loadingIndicator)
         view.addSubview(floatingActionButton)
+        view.addSubview(tableView)
 
-        tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: Unify.strings.cell)
-        tableView.allowsSelection = true
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 
         loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
