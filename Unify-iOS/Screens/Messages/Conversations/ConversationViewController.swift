@@ -94,9 +94,9 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
 
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! ConversationsTableViewCell
 //
-//        if let conversation = viewModel.conversation(for: indexPath) {
-//            cell.configure(with: conversation)
-//        }
+        if let conversation = viewModel.conversation(for: indexPath) {
+            cell.configure(with: conversation)
+        }
         return cell
     }
 
