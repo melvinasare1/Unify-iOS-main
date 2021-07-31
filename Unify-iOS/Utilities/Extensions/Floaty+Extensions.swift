@@ -10,10 +10,6 @@ import UIKit
 
 extension Floaty {
 
-    struct Consts {
-        static let floatingButtonWidth: CGFloat = 52.0
-        static let floatingButtonPadding: CGFloat = 28.0
-    }
     func addUnifyAction(title: String, color: UIColor,  _ handler: @escaping () -> Void) {
         let item = FloatyItem()
         let label = item.titleLabel
