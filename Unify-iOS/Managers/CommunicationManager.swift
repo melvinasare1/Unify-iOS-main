@@ -80,7 +80,6 @@ class CommunicationManager {
                         return
                     }
                     self?.finishCreatingConversation(conversationId: conversationId, name: name, firstMessage: firstMessage, completion)
-
                 }
             } else {
                 userNode["conversations"] = [
@@ -130,7 +129,6 @@ class CommunicationManager {
             break
         }
 
-
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "Email") as? String else {
             completion(false)
             return
@@ -166,11 +164,8 @@ class CommunicationManager {
     public func getAllConversations(for email: String, _ completion: @escaping (Result<[Conversation], Error>) -> Void) {
         guard let uid = userId else { return }
 
-        let database = Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations")
-            print(database)
-
         Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations").observe(.value) { snapshot in
-            print(snapshot)
+                print(snapshot)
             guard let value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(UnifyErrors.invalidResponse))
                 return
@@ -194,6 +189,8 @@ class CommunicationManager {
                                     otherUserEmail: otherUsersEmail,
                                     latestMessage: latestMessageObject)
             }
+
+            completion(.success(conversations))
         }
 
     }

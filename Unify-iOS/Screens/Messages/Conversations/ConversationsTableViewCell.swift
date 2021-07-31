@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ConversationsTableViewCell: UITableViewCell {
 
@@ -41,6 +42,15 @@ class ConversationsTableViewCell: UITableViewCell {
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
+
+    func configure(with conversation: Conversation) {
+       // profileImageView.image = conversation.
+     //   let path = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
+     //   profileImageView.image.sd
+        userNameLabel.text = conversation.name
+        userMessageLabel.text = conversation.latestMessage.text
+        timeLabel.text = conversation.latestMessage.date
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
