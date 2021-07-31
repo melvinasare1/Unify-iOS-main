@@ -78,10 +78,10 @@ class ConversationViewController: UIViewController {
         super.viewDidLoad()
         setup()
 
-        viewModel.startListeningForConversations { conversation in
-            print(conversation)
-            self.tableView.reloadData()
-        }
+//        viewModel.startListeningForConversations { conversation in
+//            print(conversation)
+//            self.tableView.reloadData()
+//        }
     }
 }
 
@@ -93,10 +93,10 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! ConversationsTableViewCell
-
-        if let conversation = viewModel.conversation(for: indexPath) {
-            cell.configure(with: conversation)
-        }
+//
+//        if let conversation = viewModel.conversation(for: indexPath) {
+//            cell.configure(with: conversation)
+//        }
         return cell
     }
 

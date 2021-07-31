@@ -22,8 +22,10 @@ class CommunicationManager {
     }
 
     public func createNewConversatioon(with otherUserEmail: String, name: String, firstMessage: Message, _ completion: @escaping (Bool) -> Void) {
-        let reference = Database.database().reference(withPath: "Users").child(userId!)
-        
+
+        guard let userId = userId else { return }
+        let reference = Database.database().reference(withPath: "Users").child(userId)
+        print(userId)
         reference.observeSingleEvent(of: .value) { [weak self] snapshot in
             print(snapshot)
             guard var userNode = snapshot.value as? [String: Any] else {
