@@ -22,8 +22,6 @@ class CommunicationManager {
     }
 
     public func createNewConversatioon(with otherUserEmail: String, name: String, firstMessage: Message, _ completion: @escaping (Bool) -> Void) {
-        guard let currentEmail = UserDefaults.standard.value(forKey: "Email") as? String else { return }
-
         let reference = Database.database().reference(withPath: "Users").child(userId!)
         
         reference.observeSingleEvent(of: .value) { [weak self] snapshot in
