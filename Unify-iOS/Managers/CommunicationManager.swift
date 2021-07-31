@@ -62,9 +62,11 @@ class CommunicationManager {
 
             let conversationId = "conversation_\(firstMessage.messageId)"
 
+            let otherUserSafeEmail = self?.safeEmail(emailAddress: otherUserEmail)
+
             let newConversationData: [String: Any] = [
                 "id": conversationId,
-                "other_user_email": otherUserEmail,
+                "other_user_email": otherUserSafeEmail,
                 "name": name,
                 "latestMessage": [
                     "date": dateString,
@@ -130,7 +132,7 @@ class CommunicationManager {
         case .custom(_):
             break
         }
-
+//
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "Email") as? String else {
             completion(false)
             return
@@ -154,7 +156,14 @@ class CommunicationManager {
             ]
         ]
 
+        print(conversationId)
+
+        // Here is where  get an error
         Database.database().reference().child("\(conversationId)").setValue(value) { (error, reference) in
+            print(conversationId)
+            print(reference)
+            print(error?.localizedDescription)
+
             guard error == nil else {
                 completion(false)
                 return
@@ -194,7 +203,6 @@ class CommunicationManager {
 
             completion(.success(conversations))
         }
-
     }
 
     public func getAllMessagesForConversation(with id: String, _ completion: @escaping (Result<String, Error>) -> Void) {

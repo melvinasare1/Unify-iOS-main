@@ -78,10 +78,10 @@ class ConversationViewController: UIViewController {
         super.viewDidLoad()
         setup()
 
-//        viewModel.startListeningForConversations { conversation in
-//            print(conversation)
-//            self.tableView.reloadData()
-//        }
+        viewModel.startListeningForConversations { conversation in
+            print(conversation)
+            self.tableView.reloadData()
+        }
     }
 }
 

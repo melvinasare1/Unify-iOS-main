@@ -20,7 +20,7 @@ struct ConversationsViewModel {
     }
 
     func startListeningForConversations(_ completion: @escaping ([Conversation]) -> Void) {
-        guard let email = UserDefaults.standard.value(forKey: "Email") as? String else { return }
+        guard let email = UserDefaults.standard.value(forKey: Unify.strings.email) as? String else { return }
         let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: email)
 
         CommunicationManager.shared.getAllConversations(for: safeEmail) { result in

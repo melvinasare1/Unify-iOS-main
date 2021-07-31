@@ -77,7 +77,8 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
                                   sentDate: Date(),
                                   kind: .text(text))
             #warning("fix this add users name")
-            CommunicationManager.shared.createNewConversatioon(with: viewModel.user.email, name: self.title ?? "user", firstMessage: message) { success in
+            let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: viewModel.user.email)
+            CommunicationManager.shared.createNewConversatioon(with: safeEmail, name: self.title ?? "user", firstMessage: message) { success in
             }
         } else {
             print("error")
@@ -89,8 +90,8 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
 
         let safeUserEmail = safeEmail(emailAddress: currentUserEmail)
         let dateString = ChatLogViewController.dateFormatter.string(from: Date())
-
-        let newIdentifier = "\(viewModel.user.email)_\(safeUserEmail)_\(dateString)"
+        let safeCurrentEmail = safeEmail(emailAddress: viewModel.user.email)
+        let newIdentifier = "\(safeCurrentEmail)_\(safeUserEmail)_\(dateString)"
         return newIdentifier
     }
 }
