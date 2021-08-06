@@ -132,7 +132,7 @@ class CommunicationManager {
         case .custom(_):
             break
         }
-//
+        //
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "Email") as? String else {
             completion(false)
             return
@@ -176,7 +176,7 @@ class CommunicationManager {
         guard let uid = userId else { return }
 
         Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations").observe(.value) { snapshot in
-                print(snapshot)
+            print(snapshot)
             guard let value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(UnifyErrors.invalidResponse))
                 return
@@ -205,8 +205,39 @@ class CommunicationManager {
         }
     }
 
-    public func getAllMessagesForConversation(with id: String, _ completion: @escaping (Result<String, Error>) -> Void) {
+    public func getAllMessagesForConversation(with id: String, _ completion: @escaping (Result<[Message], Error>) -> Void) {
+        guard let uid = userId else { return }
 
+        Database.database().reference(withPath: id).child("messages").observe(.value) { snapshot in
+            print(snapshot)
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(UnifyErrors.invalidResponse))
+                return
+            }
+
+            
+            let messages: [Message] = value.compactMap { dictionary in
+                guard
+                    let name = dictionary["name"] as? String,
+                    let isRead = dictionary["is_read"] as? Bool,
+                    let content = dictionary["content"] as? String,
+                    let type = dictionary["name"] as? String,
+                    let senderEmail = dictionary["sender_email"] as? String,
+                    let dateString = dictionary["date"] as? String,
+                    let messageId = dictionary["id"] as? String,
+                    let date = ChatLogViewController.dateFormatter.date(from: dateString)
+                else { return nil }
+
+                let sender = Sender(senderId: senderEmail, displayName: name, photoUrl: "")
+
+                return Message(sender: sender,
+                               messageId: messageId,
+                               sentDate: date,
+                               kind: .text(content))
+
+            }
+            completion(.success(messages))
+        }
     }
 
     public func sendMessagesToConversation(conversation: String, message: Message, _ completion: @escaping (Bool) -> Void) {

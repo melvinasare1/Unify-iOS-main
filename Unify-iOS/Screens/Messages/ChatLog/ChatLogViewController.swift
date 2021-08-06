@@ -13,7 +13,6 @@ import InputBarAccessoryView
 class ChatLogViewController: MessagesViewController {
 
     private let viewModel: ChatLogViewModel!
-    private var messages = [Message]()
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -52,10 +51,6 @@ class ChatLogViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messageInputBar.delegate = self
     }
 }
 
@@ -77,7 +72,7 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
                                   sentDate: Date(),
                                   kind: .text(text))
             #warning("fix this add users name")
-            let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: viewModel.user.email)
+            let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: viewModel.otherUserEmail)
             CommunicationManager.shared.createNewConversatioon(with: safeEmail, name: self.title ?? "user", firstMessage: message) { success in
             }
         } else {
@@ -90,7 +85,7 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
 
         let safeUserEmail = safeEmail(emailAddress: currentUserEmail)
         let dateString = ChatLogViewController.dateFormatter.string(from: Date())
-        let safeCurrentEmail = safeEmail(emailAddress: viewModel.user.email)
+        let safeCurrentEmail = safeEmail(emailAddress: viewModel.otherUserEmail)
         let newIdentifier = "\(safeCurrentEmail)_\(safeUserEmail)_\(dateString)"
         return newIdentifier
     }
@@ -103,6 +98,16 @@ private extension ChatLogViewController {
 
         title = viewModel.user.name
         navigationController?.navigationBar.prefersLargeTitles = false
+
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messageInputBar.delegate = self
+
+        guard let convoId = viewModel.conversationId else { return }
+        viewModel.listenForMessages(id: convoId) { messages in
+            self.messagesCollectionView.reloadDataAndKeepOffset()
+        }
     }
 }
 
@@ -113,10 +118,10 @@ extension ChatLogViewController: MessagesDataSource, MessagesDisplayDelegate, Me
     }
 
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return messages[indexPath.section]
+        return viewModel.messages[indexPath.section]
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return messages.count
+        return viewModel.messages.count
     }
 }

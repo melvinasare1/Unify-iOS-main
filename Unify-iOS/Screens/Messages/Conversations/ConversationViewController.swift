@@ -93,7 +93,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! ConversationsTableViewCell
-//
+
         if let conversation = viewModel.conversation(for: indexPath) {
             cell.configure(with: conversation)
         }
@@ -105,7 +105,10 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let conversation = viewModel.convo.wrappedValue[indexPath.row]
+        let viewModel = ChatLogViewModel(user:  User(name: conversation.name, email: "melvinasare@gmail.com", profile_picture_url: "crocker", toId: "dvmmkfmvfkvf", is_Online: true, university: University(name: "Birmingham", location: "Birmingham", picture: "crocker"), course: Course(name: "Business"), studyYear: StudyYear(year: "year 2")),otherUserEmail: conversation.otherUserEmail, conversationId: conversation.id, username:"")
+        let viewController = ChatLogViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

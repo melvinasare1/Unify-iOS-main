@@ -121,15 +121,15 @@ private extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
-     func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.users.wrappedValue.count
     }
 
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! HomePageTableViewCell
 
         if let user = viewModel.user(for: indexPath) {
@@ -138,23 +138,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presentPanModal(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])))
     }
 
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
-//            let users = self.viewModel.users.wrappedValue[indexPath.row]
-            let viewController = ChatLogViewController(viewModel: ChatLogViewModel(user: self.viewModel.user(for: indexPath)!))
+            let user = self.viewModel.user(for: indexPath)
+            let viewModel = ChatLogViewModel(user: user!, otherUserEmail: "", conversationId: "", username: "")
+            let viewController = ChatLogViewController(viewModel: viewModel)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
         let hide = UIContextualAction(style: .destructive, title: Unify.strings.hide) { (action, view, nil) in
-        //    let users = self.viewModel.users.wrappedValue[indexPath.row]
+            //    let users = self.viewModel.users.wrappedValue[indexPath.row]
             print("hide user")
         }
         message.backgroundColor = .systemGreen
