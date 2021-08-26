@@ -10,13 +10,25 @@ import Observable
 struct ConversationsViewModel {
 
     public var convo: MutableObservable<[Conversation]>
-
+    public var user: MutableObservable<[User]>
+    
     init() {
         convo = MutableObservable(wrappedValue: [])
+        user = MutableObservable(wrappedValue: [])
     }
 
     func conversation(for indexPath: IndexPath) -> Conversation? {
         return convo.wrappedValue.object(at: indexPath.row)
+    }
+
+    func users(for indexPath: IndexPath) -> User? {
+        return user.wrappedValue.object(at: indexPath.row)
+    }
+
+    func fetchUserProfile() {
+        NetworkManager.shared.fetchUserProfile { (users) in
+            self.user.wrappedValue = users
+        }
     }
 
     func startListeningForConversations(_ completion: @escaping ([Conversation]) -> Void) {

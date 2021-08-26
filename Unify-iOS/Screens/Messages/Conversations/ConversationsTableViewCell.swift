@@ -43,13 +43,16 @@ class ConversationsTableViewCell: UITableViewCell {
         return name
     }()
 
-    func configure(with conversation: Conversation) {
-       // profileImageView.image = conversation.
-     //   let path = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
-     //   profileImageView.image.sd
-        userNameLabel.text = conversation.name
-        userMessageLabel.text = conversation.latestMessage.text
-        timeLabel.text = conversation.latestMessage.date
+    func configure(with data: data) {
+     //   profileImageView.sd_setImage(with: URL(string: data.user.profile_picture_url, relativeTo: nil))
+        userNameLabel.text = data.conversation.name
+        userMessageLabel.text = data.conversation.latestMessage.text
+        timeLabel.text = data.conversation.latestMessage.date
+    }
+
+    struct data {
+        var conversation: Conversation
+    //    var user: User
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -253,9 +253,9 @@
 		12582CDB25470452004E12D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				128CCF272567E8480080A629 /* View */,
 				12582CDC25470468004E12D6 /* HomeViewController.swift */,
 				128CCEFC2567C6080080A629 /* HomeViewModel.swift */,
-				128CCF272567E8480080A629 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -326,15 +326,6 @@
 				12F410792689CCB100272ECC /* Conversation.swift */,
 			);
 			name = Message;
-			sourceTree = "<group>";
-		};
-		125A103925974B4C00FFFDA6 /* AccountManager */ = {
-			isa = PBXGroup;
-			children = (
-				125A103425974B4800FFFDA6 /* AccountManager.swift */,
-				125A1045259757EE00FFFDA6 /* UnifyStore.swift */,
-			);
-			path = AccountManager;
 			sourceTree = "<group>";
 		};
 		125DE3CB264DAE69007AAED8 /* Extensions */ = {
@@ -426,6 +417,7 @@
 		12AE6CC0253ED90A00942888 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				125A103425974B4800FFFDA6 /* AccountManager.swift */,
 				12AE6CC1253ED92300942888 /* NetworkManager.swift */,
 				1216B7C9264FB74100C19ACA /* CommunicationManager.swift */,
 				12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */,
@@ -465,14 +457,11 @@
 				12582D062549D477004E12D6 /* Models */,
 				12CC75A6253D9D9600FE9B56 /* Onboarding */,
 				12A8BF4426470ED000A53597 /* Screens */,
-				125A103925974B4C00FFFDA6 /* AccountManager */,
 				12AE6CC0253ED90A00942888 /* Managers */,
 				128DA0D425E9924700CF8308 /* Custom Views */,
 				12CC75B9253DA57400FE9B56 /* Utilities */,
-				12CC7573253D9BBD00FE9B56 /* Assets.xcassets */,
 				12CC7578253D9BBD00FE9B56 /* Info.plist */,
 				12AE6C9D253ED69900942888 /* GoogleService-Info.plist */,
-				12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */,
 			);
 			path = "Unify-iOS";
 			sourceTree = "<group>";
@@ -529,6 +518,9 @@
 		12CC75B9253DA57400FE9B56 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				12CC7573253D9BBD00FE9B56 /* Assets.xcassets */,
+				125A1045259757EE00FFFDA6 /* UnifyStore.swift */,
+				12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */,
 				125DE3CB264DAE69007AAED8 /* Extensions */,
 				12CC75C4253DA7DC00FE9B56 /* Unify.swift */,
 				1258EE722646137300C09271 /* ObjectSavable.swift */,
@@ -565,9 +557,9 @@
 		12D7DEE825F186BA00366B3D /* UniversitySelect */ = {
 			isa = PBXGroup;
 			children = (
+				126A0AE2261AF5A2001A6586 /* UniversityProfile */,
 				12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */,
 				12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */,
-				126A0AE2261AF5A2001A6586 /* UniversityProfile */,
 				12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */,
 			);
 			path = UniversitySelect;

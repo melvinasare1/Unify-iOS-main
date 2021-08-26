@@ -19,8 +19,10 @@ class ChatLogViewModel {
         CommunicationManager.shared.getAllMessagesForConversation(with: id) { [weak self] result in
             switch result {
             case .success(let messages):
-                guard !messages.isEmpty else { return }
+                print(messages)
+              //  guard !messages.isEmpty else { return }
                 self?.messages = messages
+                print(messages)
                 completion!(messages)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -28,15 +30,16 @@ class ChatLogViewModel {
         }
     }
 
-    init(user: User,otherUserEmail: String, conversationId: String?, username: String) {
+    init(user: User, conversationId: String?) {
         self.user = user
         self.conversationId = conversationId
-        self.username = username
-        self.otherUserEmail = otherUserEmail
+        self.username = "username"
+        self.otherUserEmail = "otherUserEmail"
 
         // Only listen for messages once a conversation ID exists
-        if let convoId = conversationId {
-            listenForMessages(id: convoId, completion: nil)
-        }
+//        if let convoId = conversationId {
+//            self.listenForMessages(id: convoId, completion: nil)
+//            print(convoId)
+//        }
     }
 }

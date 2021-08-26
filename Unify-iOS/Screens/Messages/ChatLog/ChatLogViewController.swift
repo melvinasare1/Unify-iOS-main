@@ -9,10 +9,13 @@ import UIKit
 import FirebaseDatabase
 import MessageKit
 import InputBarAccessoryView
+import Observable
 
 class ChatLogViewController: MessagesViewController {
 
     private let viewModel: ChatLogViewModel!
+    private var disposable: Disposable?
+
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -21,14 +24,13 @@ class ChatLogViewController: MessagesViewController {
         return formatter
     }()
 
-    private var conversationId: String?
-
     private var sender: Sender? {
-        guard let email = UserDefaults.standard.value(forKey: "Email")
+        guard let email = UserDefaults.standard.value(forKey: "Email"),
+              let picture = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
         else { return nil }
         return Sender(senderId: email as! String,
-               displayName: "Jason",
-               photoUrl: "")
+                      displayName: "Jason",
+                      photoUrl: picture as! String)
     }
 
     public var isNewConversation = true
@@ -71,7 +73,6 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
                                   messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-            #warning("fix this add users name")
             let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: viewModel.otherUserEmail)
             CommunicationManager.shared.createNewConversatioon(with: safeEmail, name: self.title ?? "user", firstMessage: message) { success in
             }
@@ -105,8 +106,11 @@ private extension ChatLogViewController {
         messageInputBar.delegate = self
 
         guard let convoId = viewModel.conversationId else { return }
+
         viewModel.listenForMessages(id: convoId) { messages in
-            self.messagesCollectionView.reloadDataAndKeepOffset()
+            DispatchQueue.main.async {
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+            }
         }
     }
 }

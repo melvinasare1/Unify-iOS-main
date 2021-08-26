@@ -67,6 +67,10 @@ class HomeViewController: UIViewController {
         disposable = viewModel.users.observe { [weak self] _, _ in
             self?.tableView.reloadData()
         }
+
+        viewModel.startListeningForConversations { conversation in
+            self.tableView.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -149,7 +153,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
             let user = self.viewModel.user(for: indexPath)
-            let viewModel = ChatLogViewModel(user: user!, otherUserEmail: "", conversationId: "", username: "")
+            let conversation = self.viewModel.convo.wrappedValue[indexPath.row]
+
+            let viewModel = ChatLogViewModel(user: user!, conversationId: conversation.id)
             let viewController = ChatLogViewController(viewModel: viewModel)
             self.navigationController?.pushViewController(viewController, animated: true)
         }

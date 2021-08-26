@@ -208,34 +208,36 @@ class CommunicationManager {
     public func getAllMessagesForConversation(with id: String, _ completion: @escaping (Result<[Message], Error>) -> Void) {
         guard let uid = userId else { return }
 
-        Database.database().reference(withPath: id).child("messages").observe(.value) { snapshot in
-            print(snapshot)
+        Database.database().reference(withPath: id).child("message").observe(.value) { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(UnifyErrors.invalidResponse))
                 return
             }
-
+            print(value)
             
             let messages: [Message] = value.compactMap { dictionary in
                 guard
                     let name = dictionary["name"] as? String,
-                    let isRead = dictionary["is_read"] as? Bool,
+               //     let isRead = dictionary["is_read"] as? Bool,
                     let content = dictionary["content"] as? String,
-                    let type = dictionary["name"] as? String,
+                 //   let type = dictionary["type"] as? String,
                     let senderEmail = dictionary["sender_email"] as? String,
                     let dateString = dictionary["date"] as? String,
                     let messageId = dictionary["id"] as? String,
                     let date = ChatLogViewController.dateFormatter.date(from: dateString)
+                 //   let picture = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
                 else { return nil }
 
-                let sender = Sender(senderId: senderEmail, displayName: name, photoUrl: "")
-
+                let sender = Sender(senderId: senderEmail, displayName: name, photoUrl: "picture as! String")
+                print(sender, messageId, content)
                 return Message(sender: sender,
                                messageId: messageId,
                                sentDate: date,
                                kind: .text(content))
 
             }
+            print(snapshot.value)
+            print(messages)
             completion(.success(messages))
         }
     }
