@@ -77,6 +77,8 @@
 		12D7DEDF25F157D600366B3D /* UniversityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */; };
 		12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */; };
 		12D7DEF125F2D07C00366B3D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */; };
+		12F410782689CCA900272ECC /* LatestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410772689CCA900272ECC /* LatestMessage.swift */; };
+		12F4107A2689CCB100272ECC /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410792689CCB100272ECC /* Conversation.swift */; };
 		74035908F8F1D769B2559E0B /* Pods_Unify_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0BA7A0CB233FF4D8075F34 /* Pods_Unify_iOSTests.framework */; };
 		F58A7FD14625862E165EB2D4 /* Pods_Unify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -175,6 +177,8 @@
 		12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCollectionViewCell.swift; sourceTree = "<group>"; };
 		12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitySelectViewModel.swift; sourceTree = "<group>"; };
 		12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		12F410772689CCA900272ECC /* LatestMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMessage.swift; sourceTree = "<group>"; };
+		12F410792689CCB100272ECC /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		16DB7CC0BE87283A73F6FD39 /* Pods-Unify-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		38E0B9EBB637E5A4AE8AEA22 /* Pods_Unify_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unify_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C33D3DCEC65CE500E8F21EE /* Pods-Unify-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unify-iOS.release.xcconfig"; path = "Target Support Files/Pods-Unify-iOS/Pods-Unify-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,9 +253,9 @@
 		12582CDB25470452004E12D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				128CCF272567E8480080A629 /* View */,
 				12582CDC25470468004E12D6 /* HomeViewController.swift */,
 				128CCEFC2567C6080080A629 /* HomeViewModel.swift */,
-				128CCF272567E8480080A629 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -318,17 +322,10 @@
 			children = (
 				12C5FDFA266FA5F5003230B5 /* Message.swift */,
 				12C5FDFF266FA624003230B5 /* Sender.swift */,
+				12F410772689CCA900272ECC /* LatestMessage.swift */,
+				12F410792689CCB100272ECC /* Conversation.swift */,
 			);
 			name = Message;
-			sourceTree = "<group>";
-		};
-		125A103925974B4C00FFFDA6 /* AccountManager */ = {
-			isa = PBXGroup;
-			children = (
-				125A103425974B4800FFFDA6 /* AccountManager.swift */,
-				125A1045259757EE00FFFDA6 /* UnifyStore.swift */,
-			);
-			path = AccountManager;
 			sourceTree = "<group>";
 		};
 		125DE3CB264DAE69007AAED8 /* Extensions */ = {
@@ -420,6 +417,7 @@
 		12AE6CC0253ED90A00942888 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				125A103425974B4800FFFDA6 /* AccountManager.swift */,
 				12AE6CC1253ED92300942888 /* NetworkManager.swift */,
 				1216B7C9264FB74100C19ACA /* CommunicationManager.swift */,
 				12D7DEF025F2D07C00366B3D /* PersistenceManager.swift */,
@@ -459,14 +457,11 @@
 				12582D062549D477004E12D6 /* Models */,
 				12CC75A6253D9D9600FE9B56 /* Onboarding */,
 				12A8BF4426470ED000A53597 /* Screens */,
-				125A103925974B4C00FFFDA6 /* AccountManager */,
 				12AE6CC0253ED90A00942888 /* Managers */,
 				128DA0D425E9924700CF8308 /* Custom Views */,
 				12CC75B9253DA57400FE9B56 /* Utilities */,
-				12CC7573253D9BBD00FE9B56 /* Assets.xcassets */,
 				12CC7578253D9BBD00FE9B56 /* Info.plist */,
 				12AE6C9D253ED69900942888 /* GoogleService-Info.plist */,
-				12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */,
 			);
 			path = "Unify-iOS";
 			sourceTree = "<group>";
@@ -523,8 +518,11 @@
 		12CC75B9253DA57400FE9B56 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				12CC75C4253DA7DC00FE9B56 /* Unify.swift */,
+				12CC7573253D9BBD00FE9B56 /* Assets.xcassets */,
+				125A1045259757EE00FFFDA6 /* UnifyStore.swift */,
+				12CC7570253D9BBA00FE9B56 /* Unify_iOS.xcdatamodeld */,
 				125DE3CB264DAE69007AAED8 /* Extensions */,
+				12CC75C4253DA7DC00FE9B56 /* Unify.swift */,
 				1258EE722646137300C09271 /* ObjectSavable.swift */,
 				126A0B1D2620CB42001A6586 /* SFSymbols.swift */,
 				12CC75BF253DA62600FE9B56 /* Strings.swift */,
@@ -559,9 +557,9 @@
 		12D7DEE825F186BA00366B3D /* UniversitySelect */ = {
 			isa = PBXGroup;
 			children = (
+				126A0AE2261AF5A2001A6586 /* UniversityProfile */,
 				12D7DED525F154AD00366B3D /* UniversitySelectViewController.swift */,
 				12D7DEE325F185B300366B3D /* UniversitySelectViewModel.swift */,
-				126A0AE2261AF5A2001A6586 /* UniversityProfile */,
 				12D7DEDE25F157D600366B3D /* UniversityCollectionViewCell.swift */,
 			);
 			path = UniversitySelect;
@@ -865,11 +863,13 @@
 				12CC7568253D9BBA00FE9B56 /* AppDelegate.swift in Sources */,
 				1258EE732646137300C09271 /* ObjectSavable.swift in Sources */,
 				126A0B1E2620CB42001A6586 /* SFSymbols.swift in Sources */,
+				12F410782689CCA900272ECC /* LatestMessage.swift in Sources */,
 				125DE3F8264DCA2A007AAED8 /* String+Extensions.swift in Sources */,
 				1211D20E25F374C60081CC21 /* ProfileViewModel.swift in Sources */,
 				125DE3D0264DAE86007AAED8 /* UIViewController+Extensions.swift in Sources */,
 				127EA3992624EC90003130DC /* ForgottenPasswordViewController.swift in Sources */,
 				12582D102549D56B004E12D6 /* University.swift in Sources */,
+				12F4107A2689CCB100272ECC /* Conversation.swift in Sources */,
 				128CCEFD2567C6080080A629 /* HomeViewModel.swift in Sources */,
 				12D7DEE425F185B300366B3D /* UniversitySelectViewModel.swift in Sources */,
 				124504EB25B1D6910071E925 /* UserData.swift in Sources */,

@@ -67,6 +67,10 @@ class HomeViewController: UIViewController {
         disposable = viewModel.users.observe { [weak self] _, _ in
             self?.tableView.reloadData()
         }
+
+        viewModel.startListeningForConversations { conversation in
+            self.tableView.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,12 +88,12 @@ class HomeViewController: UIViewController {
 private extension HomeViewController {
     func setup() {
         removeBarButtonItems()
-//
-//        viewModel.checkIfUsersLoggedIn { isLoggedIn in
-//            if !isLoggedIn {
-//                self.navigationController?.pushViewController(UserLoginOptionsViewController(viewModel: UserLoginViewModel()), animated: true)
-//            }
-//        }
+
+        viewModel.checkIfUsersLoggedIn { isLoggedIn in
+            if !isLoggedIn {
+                self.navigationController?.pushViewController(UserLoginOptionsViewController(viewModel: UserLoginViewModel()), animated: true)
+            }
+        }
 
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -121,15 +125,15 @@ private extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
-     func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.users.wrappedValue.count
     }
 
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Unify.strings.cell, for: indexPath) as! HomePageTableViewCell
 
         if let user = viewModel.user(for: indexPath) {
@@ -138,23 +142,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presentPanModal(ProfileViewController(viewModel: ProfileViewModel(user: viewModel.users.wrappedValue[indexPath.row])))
     }
 
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let message = UIContextualAction(style: .normal, title: Unify.strings.message) { (action, view, nil) in
-//            let users = self.viewModel.users.wrappedValue[indexPath.row]
-            let viewController = ChatLogViewController(viewModel: ChatLogViewModel(user: self.viewModel.user(for: indexPath)!))
+            let user = self.viewModel.user(for: indexPath)
+            let conversation = self.viewModel.convo.wrappedValue[indexPath.row]
+
+            let viewModel = ChatLogViewModel(user: user!, conversationId: conversation.id)
+            let viewController = ChatLogViewController(viewModel: viewModel)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
         let hide = UIContextualAction(style: .destructive, title: Unify.strings.hide) { (action, view, nil) in
-        //    let users = self.viewModel.users.wrappedValue[indexPath.row]
+            //    let users = self.viewModel.users.wrappedValue[indexPath.row]
             print("hide user")
         }
         message.backgroundColor = .systemGreen
@@ -178,9 +185,9 @@ extension HomeViewController: FloatyDelegate {
     }
 
     @objc func returnToMessages() {
-//        let viewModel = MessagesViewModel()
-//        let viewController = MessagesViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(viewController, animated: true)
+        let viewModel = ConversationsViewModel()
+        let viewController = ConversationViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc func returnToProfile() {

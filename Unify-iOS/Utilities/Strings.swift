@@ -105,6 +105,10 @@ public class Strings {
         return NSLocalizedString("Login With Email", comment: "")
     }
 
+    public var email: String {
+        return NSLocalizedString("Email", comment: "")
+    }
+
     public var google_signin: String {
         return NSLocalizedString("Sign In With Google", comment: "")
     }

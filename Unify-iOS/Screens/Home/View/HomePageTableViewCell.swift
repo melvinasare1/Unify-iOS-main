@@ -11,7 +11,7 @@ import SDWebImage
 class HomePageTableViewCell: UITableViewCell {
 
     private let profileImageView: AvatarView = {
-        let imageView = AvatarView(image: UIImage(named: "profileImage1"))
+        let imageView = AvatarView(image: UIImage(named: "solidblue"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView

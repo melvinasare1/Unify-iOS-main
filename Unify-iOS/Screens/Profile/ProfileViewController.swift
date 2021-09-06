@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController {
         let imageView = AvatarView(image: UIImage(named: "solidblue"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        
         return imageView
     }()
 
@@ -169,7 +168,6 @@ private extension ProfileViewController {
         floatingActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Consts.floatingButtonPadding).isActive = true
         floatingActionButton.heightAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
         floatingActionButton.widthAnchor.constraint(equalToConstant: Consts.floatingButtonWidth).isActive = true
-        floatingActionButton.backgroundColor = .red
 
         menuButton.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 15).isActive = true
         menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true

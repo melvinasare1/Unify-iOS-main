@@ -26,4 +26,13 @@ class ComposeNewMessageController: UIViewController {
 
 extension ComposeNewMessageController: UISearchBarDelegate {
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+    }
+}
+
+extension ComposeNewMessageController {
+    func setup() {
+        navigationController?.navigationBar.topItem?.titleView = searchBar
+    }
 }

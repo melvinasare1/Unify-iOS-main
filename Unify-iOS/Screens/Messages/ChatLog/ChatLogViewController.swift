@@ -9,11 +9,13 @@ import UIKit
 import FirebaseDatabase
 import MessageKit
 import InputBarAccessoryView
+import Observable
 
 class ChatLogViewController: MessagesViewController {
 
     private let viewModel: ChatLogViewModel!
-    private var messages = [Message]()
+    private var disposable: Disposable?
+
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -22,17 +24,17 @@ class ChatLogViewController: MessagesViewController {
         return formatter
     }()
 
-    private var conversationId: String?
-
     private var sender: Sender? {
-        guard let email = UserDefaults.standard.value(forKey: "Email")
+        guard let email = UserDefaults.standard.value(forKey: "Email"),
+              let picture = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
         else { return nil }
-        return Sender(senderId: email as! String,
-               displayName: "Jason",
-               photoUrl: "")
+
+        let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: email as! String)
+        return Sender(senderId: safeEmail,
+                      displayName: "Jason",
+                      photoUrl: picture as! String)
     }
 
-    public let otherUserEmail: String = ""
     public var isNewConversation = true
 
     private let userNameLabel: UILabel = {
@@ -53,11 +55,6 @@ class ChatLogViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messageInputBar.delegate = self
     }
 }
 
@@ -78,8 +75,8 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
                                   messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-
-            CommunicationManager.shared.createNewConversatioon(with: otherUserEmail, firstMessage: message) { [weak self] success in
+            let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: viewModel.otherUserEmail)
+            CommunicationManager.shared.createNewConversatioon(with: safeEmail, name: self.title ?? "user", firstMessage: message) { success in
             }
         } else {
             print("error")
@@ -91,8 +88,8 @@ extension ChatLogViewController: InputBarAccessoryViewDelegate {
 
         let safeUserEmail = safeEmail(emailAddress: currentUserEmail)
         let dateString = ChatLogViewController.dateFormatter.string(from: Date())
-
-        let newIdentifier = "\(otherUserEmail)_\(safeUserEmail)_\(dateString)"
+        let safeCurrentEmail = safeEmail(emailAddress: viewModel.otherUserEmail)
+        let newIdentifier = "\(safeCurrentEmail)_\(safeUserEmail)_\(dateString)"
         return newIdentifier
     }
 }
@@ -102,11 +99,21 @@ private extension ChatLogViewController {
     func setup() {
         view.backgroundColor = .white
 
-        userNameLabel.text = "viewModel.user.name"
-
-        navigationItem.title = userNameLabel.text
+        title = viewModel.user.name
         navigationController?.navigationBar.prefersLargeTitles = false
 
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messageInputBar.delegate = self
+
+        guard let convoId = viewModel.conversationId else { return }
+
+        viewModel.listenForMessages(id: convoId) { messages in
+            DispatchQueue.main.async {
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+            }
+        }
     }
 }
 
@@ -117,10 +124,10 @@ extension ChatLogViewController: MessagesDataSource, MessagesDisplayDelegate, Me
     }
 
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return messages[indexPath.section]
+        return viewModel.messages[indexPath.section]
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return messages.count
+        return viewModel.messages.count
     }
 }
