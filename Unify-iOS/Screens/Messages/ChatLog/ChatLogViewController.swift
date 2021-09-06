@@ -28,7 +28,9 @@ class ChatLogViewController: MessagesViewController {
         guard let email = UserDefaults.standard.value(forKey: "Email"),
               let picture = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
         else { return nil }
-        return Sender(senderId: email as! String,
+
+        let safeEmail = CommunicationManager.shared.safeEmail(emailAddress: email as! String)
+        return Sender(senderId: safeEmail,
                       displayName: "Jason",
                       photoUrl: picture as! String)
     }

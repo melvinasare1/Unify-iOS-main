@@ -162,7 +162,7 @@ class CommunicationManager {
         Database.database().reference().child("\(conversationId)").setValue(value) { (error, reference) in
             print(conversationId)
             print(reference)
-            print(error?.localizedDescription)
+            print("shit is fucked up here")
 
             guard error == nil else {
                 completion(false)
