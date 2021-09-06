@@ -94,6 +94,7 @@ class LoginViewController: UIViewController {
     }
 
     @objc func loginUsingEmail() {
+        print("button pressed")
         guard let email = emailTextField.text, let password = passwordTextField.text  else { return }
 
         if email.isEmpty && password.isEmpty {

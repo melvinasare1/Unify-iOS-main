@@ -13,38 +13,236 @@ class CommunicationManager {
 
     var messages = [Message]()
     var messagesDictionary = [String: Message]()
+    let userId = AccountManager.account.currentUser?.uid
 
-    func sendMessages(usersId: String, sentText: String) {
-        let reference = Database.database().reference(withPath: Unify.strings.messages)
-        let childRefence = reference.childByAutoId()
-        let fromId = AccountManager.account.currentUser?.uid
-        let timestamp = NSNumber(value: NSDate().timeIntervalSince1970)
-        let values = ["toId": usersId,"fromId": fromId!, "text": sentText, "timestamp": timestamp] as [String : Any]
-        childRefence.updateChildValues(values)
+    public func safeEmail(emailAddress: String) -> String {
+        var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
     }
 
-    func retrieveMessages(_ completion: @escaping ([Messages]) -> Void) {
-//        let reference = Database.database().reference(withPath: Unify.strings.messages)
-//        reference.observe(.childAdded) { [weak self] snapshot in
-//            guard let self = self else { return }
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                var message = Messages(fromId: "", text: "", timestamp: NSNumber(), toId: "")
-//
-//                message.fromId = dictionary["fromId"] as? String ?? ""
-//                message.text = dictionary["text"] as? String ?? ""
-//                message.toId = dictionary["toId"] as? String ?? ""
-//                message.timestamp = (dictionary["timestamp"] as? NSNumber)!
-//
-//                if let toId = message.toId {
-//                    self.messagesDictionary[toId] = message
-//                    self.messages = Array(self.messagesDictionary.values)
-//                }
-//
-//                self.messages.append(message)
-//                completion(self.messages)
-//            }
-//        } withCancel: { error in
-//            print(error)
-//        }
+    public func createNewConversatioon(with otherUserEmail: String, name: String, firstMessage: Message, _ completion: @escaping (Bool) -> Void) {
+
+        guard let userId = userId else { return }
+        let reference = Database.database().reference(withPath: "Users").child(userId)
+        print(userId)
+        reference.observeSingleEvent(of: .value) { [weak self] snapshot in
+            print(snapshot)
+            guard var userNode = snapshot.value as? [String: Any] else {
+                completion(false)
+                return
+            }
+
+            let messageDate = firstMessage.sentDate
+            let dateString = ChatLogViewController.dateFormatter.string(from: messageDate)
+            var message = ""
+            switch firstMessage.kind {
+
+            case .text(let messageText):
+                message = messageText
+            case .attributedText(_):
+                break
+            case .photo(_):
+                break
+            case .video(_):
+                break
+            case .location(_):
+                break
+            case .emoji(_):
+                break
+            case .audio(_):
+                break
+            case .contact(_):
+                break
+            case .linkPreview(_):
+                break
+            case .custom(_):
+                break
+            }
+
+            let conversationId = "conversation_\(firstMessage.messageId)"
+
+            let otherUserSafeEmail = self?.safeEmail(emailAddress: otherUserEmail)
+
+            let newConversationData: [String: Any] = [
+                "id": conversationId,
+                "other_user_email": otherUserSafeEmail,
+                "name": name,
+                "latestMessage": [
+                    "date": dateString,
+                    "message": message,
+                    "is_read": false
+                ]
+            ]
+
+            if var conversation = userNode["conversations"] as? [[String: Any]] {
+                conversation.append(newConversationData)
+                userNode["conversations"] = conversation
+                reference.setValue(userNode) { [weak self] (error, _) in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationId: conversationId, name: name, firstMessage: firstMessage, completion)
+                }
+            } else {
+                userNode["conversations"] = [
+                    newConversationData
+                ]
+
+                reference.setValue(userNode) { [weak self] (error, _) in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationId: conversationId, name: name, firstMessage: firstMessage, completion)
+                }
+            }
+        } withCancel: { (error) in
+
+        }
+    }
+
+    private func finishCreatingConversation(conversationId: String, name: String, firstMessage: Message, _ completion: @escaping (Bool)-> Void) {
+
+        let messageDate = firstMessage.sentDate
+        let dateString = ChatLogViewController.dateFormatter.string(from: messageDate)
+
+        var message = ""
+        switch firstMessage.kind {
+
+        case .text(let messageText):
+            message = messageText
+        case .attributedText(_):
+            break
+        case .photo(_):
+            break
+        case .video(_):
+            break
+        case .location(_):
+            break
+        case .emoji(_):
+            break
+        case .audio(_):
+            break
+        case .contact(_):
+            break
+        case .linkPreview(_):
+            break
+        case .custom(_):
+            break
+        }
+        //
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "Email") as? String else {
+            completion(false)
+            return
+        }
+
+        let safeCurrentEmail = safeEmail(emailAddress: currentUserEmail)
+
+        let messageDictionary: [String: Any] = [
+            "id": firstMessage.messageId ,
+            "type": firstMessage.kind.messageKindString,
+            "content": message,
+            "date": dateString,
+            "sender_email": safeCurrentEmail,
+            "is_read": false,
+            "name": name
+        ]
+
+        let value: [String: Any] = [
+            "message": [
+                messageDictionary
+            ]
+        ]
+
+        print(conversationId)
+
+        // Here is where  get an error
+        Database.database().reference().child("\(conversationId)").setValue(value) { (error, reference) in
+            print(conversationId)
+            print(reference)
+            print("shit is fucked up here")
+
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
+
+    public func getAllConversations(for email: String, _ completion: @escaping (Result<[Conversation], Error>) -> Void) {
+        guard let uid = userId else { return }
+
+        Database.database().reference(withPath: Unify.strings.users).child(uid).child("conversations").observe(.value) { snapshot in
+            print(snapshot)
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(UnifyErrors.invalidResponse))
+                return
+            }
+            let conversations: [Conversation] = value.compactMap { dictionary in
+                guard
+                    let conversationId = dictionary["id"] as? String,
+                    let name = dictionary["name"] as? String,
+                    let otherUsersEmail = dictionary["other_user_email"] as? String,
+                    let latestMessage = dictionary["latestMessage"] as? [String: Any],
+                    let date = latestMessage["date"] as? String,
+                    let message = latestMessage["message"] as? String,
+                    let isRead = latestMessage["is_read"] as? Bool else {
+                    return nil
+                }
+
+                let latestMessageObject = LatestMessage(date: date,
+                                                        text: message,
+                                                        is_read: isRead)
+                return Conversation(id: conversationId, name: name,
+                                    otherUserEmail: otherUsersEmail,
+                                    latestMessage: latestMessageObject)
+            }
+
+            completion(.success(conversations))
+        }
+    }
+
+    public func getAllMessagesForConversation(with id: String, _ completion: @escaping (Result<[Message], Error>) -> Void) {
+        guard let uid = userId else { return }
+
+        Database.database().reference(withPath: id).child("message").observe(.value) { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(UnifyErrors.invalidResponse))
+                return
+            }
+            print(value)
+            
+            let messages: [Message] = value.compactMap { dictionary in
+                guard
+                    let name = dictionary["name"] as? String,
+               //     let isRead = dictionary["is_read"] as? Bool,
+                    let content = dictionary["content"] as? String,
+                 //   let type = dictionary["type"] as? String,
+                    let senderEmail = dictionary["sender_email"] as? String,
+                    let dateString = dictionary["date"] as? String,
+                    let messageId = dictionary["id"] as? String,
+                    let date = ChatLogViewController.dateFormatter.date(from: dateString)
+                 //   let picture = UserDefaults.standard.value(forKey: Unify.strings.profile_picture_uid)
+                else { return nil }
+
+                let sender = Sender(senderId: senderEmail, displayName: name, photoUrl: "picture as! String")
+                print(sender, messageId, content)
+                return Message(sender: sender,
+                               messageId: messageId,
+                               sentDate: date,
+                               kind: .text(content))
+
+            }
+            print(snapshot.value)
+            print(messages)
+            completion(.success(messages))
+        }
+    }
+
+    public func sendMessagesToConversation(conversation: String, message: Message, _ completion: @escaping (Bool) -> Void) {
+
     }
 }
